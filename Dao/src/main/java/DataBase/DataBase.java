@@ -12,6 +12,12 @@ public class DataBase {
 
     //Проверка
     private Connection connection;
+    private Connection connection;
+    private Connection connection;
+    private Connection connection;
+
+    
+    private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
     private PreparedStatement preparedStatement;

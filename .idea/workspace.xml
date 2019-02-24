@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="213d5afa-7316-483e-a414-5247f703f4d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dao/src/main/java/DataBase/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dao/src/main/java/DataBase/DataBase.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -74,7 +74,7 @@
           <entry key="class" value="2" />
           <entry key="fxml" value="36" />
           <entry key="iml" value="1" />
-          <entry key="java" value="274" />
+          <entry key="java" value="275" />
           <entry key="pom" value="1" />
           <entry key="sql" value="1" />
           <entry key="task" value="11" />
@@ -87,7 +87,7 @@
           <entry key="CLASS" value="2" />
           <entry key="Database Element" value="14" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="274" />
+          <entry key="JAVA" value="275" />
           <entry key="Scratch" value="1" />
           <entry key="XML" value="62" />
         </counts>
@@ -96,15 +96,15 @@
         <counts>
           <entry key="dummy" value="9" />
           <entry key="fxml" value="35" />
-          <entry key="java" value="7884" />
-          <entry key="txt" value="1" />
+          <entry key="java" value="7904" />
+          <entry key="txt" value="8" />
           <entry key="xml" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7884" />
-          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="JAVA" value="7904" />
+          <entry key="PLAIN_TEXT" value="17" />
           <entry key="XML" value="53" />
         </counts>
       </usages-collector>
@@ -115,8 +115,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dao/src/main/java/DataBase/DataBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="127" column="49" lean-forward="true" selection-start-line="127" selection-start-column="49" selection-end-line="127" selection-end-column="49" />
+            <state relative-caret-position="204">
+              <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -174,7 +174,6 @@
         <option value="$PROJECT_DIR$/Dao/pom.xml" />
         <option value="$PROJECT_DIR$/TaskLog/pom.xml" />
         <option value="$PROJECT_DIR$/UI/pom.xml" />
-        <option value="$PROJECT_DIR$/Dao/src/main/java/DataBase/DataBase.java" />
         <option value="$PROJECT_DIR$/Pojo/src/main/java/PojoClass/Task.java" />
         <option value="$PROJECT_DIR$/Pojo/src/main/java/PojoClass/User.java" />
         <option value="$PROJECT_DIR$/TaskLog/src/main/java/TaskLog/TaskLog.java" />
@@ -189,6 +188,7 @@
         <option value="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerAddTask.java" />
         <option value="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerFormUser.java" />
         <option value="$PROJECT_DIR$/Pojo/pom.xml" />
+        <option value="$PROJECT_DIR$/Dao/src/main/java/DataBase/DataBase.java" />
       </list>
     </option>
   </component>
@@ -222,45 +222,6 @@
             <path>
               <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
-              <item name="Dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
-              <item name="Dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
-              <item name="Dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
-              <item name="Dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
-              <item name="Dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="DataBase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -371,12 +332,20 @@
       <workItem from="1550593496042" duration="1190000" />
       <workItem from="1550938295311" duration="4139000" />
       <workItem from="1550946224216" duration="1461000" />
-      <workItem from="1550985868930" duration="1519000" />
+      <workItem from="1550985868930" duration="1757000" />
     </task>
+    <task id="LOCAL-00001" summary="AllFile">
+      <created>1550991640876</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1550991640876</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81031000" />
+    <option name="totallyTimeSpent" value="81269000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -389,6 +358,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25037822" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -407,7 +377,7 @@
       <window_info anchor="bottom" id="Database Console" order="7" weight="0.3295082" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3295082" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3295082" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3295082" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3295082" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -426,6 +396,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="AllFile" />
+    <option name="LAST_COMMIT_MESSAGE" value="AllFile" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -628,13 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerAddTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerFormUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-510">
@@ -708,10 +675,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerAddTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="127" column="10" selection-start-line="127" selection-start-column="10" selection-end-line="127" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Dao/src/main/java/DataBase/DataBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="127" column="49" lean-forward="true" selection-start-line="127" selection-start-column="49" selection-end-line="127" selection-end-column="49" />
+        <state relative-caret-position="204">
+          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
