@@ -10,7 +10,6 @@ import java.util.List;
 
 public class DataBase {
 
-    //Проверка гита, должно теперь сработать
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
@@ -389,4 +388,6 @@ public class DataBase {
         }
         return maxId;
     }
+
+    
 }

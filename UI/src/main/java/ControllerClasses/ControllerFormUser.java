@@ -98,9 +98,9 @@ public class ControllerFormUser implements Initializable {
     private void setTaskData() throws SQLException {
         tasksData=null;
         tasksData = FXCollections.observableArrayList();
-        List<Task> exerciseList = dataBase.getTasksUser(user.getIdUser(),dataBase);
-        for(int i=0;i<exerciseList.size();i++){
-            tasksData.add(exerciseList.get(i));
+        List<Task> tasksList = dataBase.getTasksUser(user.getIdUser(),dataBase);
+        for(int i=0;i<tasksList.size();i++){
+            tasksData.add(tasksList.get(i));
         }
     }
 
