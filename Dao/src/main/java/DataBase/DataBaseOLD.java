@@ -8,14 +8,14 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataBase {
+public class DataBaseOLD {
 
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
     private PreparedStatement preparedStatement;
 
-    public DataBase() throws SQLException { //Конструктор и соединение с бд
+    public DataBaseOLD() throws SQLException { //Конструктор и соединение с бд
         connectionDB();
     }
 
@@ -24,7 +24,7 @@ public class DataBase {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection("JDBC:sqlite:F:\\SQlite\\Windows\\TaskManager.db");
             statement = connection.createStatement(); //Для sql запросов
-            System.out.println("Connection DataBase.DataBase");
+            System.out.println("Connection DataBaseOLD.DataBaseOLD");
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -92,13 +92,13 @@ public class DataBase {
         System.out.println("Пользователь удален");
     }
 
-    public User getUserInDB(int idUser, DataBase dataBase) throws SQLException { //Получение PojoClass.User
+    public User getUserInDB(int idUser) throws SQLException { //Получение PojoClass.User
         User user = null;
         preparedStatement = connection.prepareStatement("SELECT name_user FROM User where id_user= ? ");
         preparedStatement.setInt(1, idUser);
         resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            user = new User(idUser, resultSet.getString("name_user"), dataBase);
+            user = new User(idUser, resultSet.getString("name_user"));
         }
         return user;
     }
@@ -190,24 +190,8 @@ public class DataBase {
         }
     }
 
-    //Получение листа записей
-    public List<Task> getListTasks(DataBase dataBase) throws SQLException {
-        ArrayList<Task> listTask = new ArrayList<Task>();
-        resultSet = statement.executeQuery("select * from Task");
-        while (resultSet.next()) {
-            int idTask = resultSet.getInt("id_task");
-            int idUser = resultSet.getInt("id_user");
-            String nameTask = resultSet.getString("name_task");
-            String description = resultSet.getString("DescriptionTask");
-            java.util.Date date = resultSet.getDate("dateTask");
-            Time time = resultSet.getTime("timeTask");
-            listTask.add(new Task(idTask, idUser, nameTask, description, date, time, dataBase));
-        }
-        return listTask;
-    }
-
     //Получение записей конкретного пользователя
-    public List<Task> getTasksUser(int idUser, DataBase dataBase) throws SQLException {
+    public List<Task> getTasksUser(int idUser) throws SQLException {
         ArrayList<Task> listTask = new ArrayList<Task>();
         int[] masIdTasks = getMassIdTasks(idUser);
         for (int i = 0; i < masIdTasks.length; i++) {
@@ -221,7 +205,7 @@ public class DataBase {
                 String description = resultSet.getString("DescriptionTask");
                 java.util.Date date = resultSet.getDate("dateTask");
                 Time time = resultSet.getTime("timeTask");
-                Task task = new Task(idTask, idUser, nameTask, description, date, time, dataBase);
+                Task task = new Task(idTask, idUser, nameTask, description, date, time);
                 listTask.add(task);
             }
         }
@@ -253,7 +237,7 @@ public class DataBase {
     }
 
     //Получение одной записи
-    public Task getTask(int idTask, DataBase dataBase) throws SQLException {
+    public Task getTask(int idTask) throws SQLException {
         Task task = null;
         preparedStatement = connection.prepareStatement("SELECT * from Task where id_task=?");
         preparedStatement.setInt(1, idTask);
@@ -264,13 +248,13 @@ public class DataBase {
             String description = resultSet.getString("DescriptionTask");
             java.util.Date date = resultSet.getDate("dateTask");
             Time time = resultSet.getTime("timeTask");
-            task = new Task(idTask, idUser, nameTask, description, date, time, dataBase);
+            task = new Task(idTask, idUser, nameTask, description, date, time);
         }
         return task;
     }
 
     //Получение задачи у пользователя
-    public Task getTaskUser(int idUser, int idTask, DataBase dataBase) throws SQLException {
+    public Task getTaskUser(int idUser, int idTask) throws SQLException {
         Task task = null;
         preparedStatement = connection.prepareStatement("SELECT * from Task where id_task=? and id_user=?");
         preparedStatement.setInt(1, idTask);
@@ -281,7 +265,7 @@ public class DataBase {
             String description = resultSet.getString("DescriptionTask");
             java.util.Date date = resultSet.getDate("dateTask");
             Time time = resultSet.getTime("timeTask");
-            task = new Task(idTask, idUser, nameTask, description, date, time, dataBase);
+            task = new Task(idTask, idUser, nameTask, description, date, time);
         }
         return task;
     }
@@ -389,5 +373,31 @@ public class DataBase {
         return maxId;
     }
 
-    
+    //Получение листа записей
+    public ArrayList<Task> getListTasks() throws SQLException {
+        ArrayList<Task> listTask = new ArrayList<Task>();
+        resultSet = statement.executeQuery("select * from Task");
+        while (resultSet.next()) {
+            int idTask = resultSet.getInt("id_task");
+            int idUser = resultSet.getInt("id_user");
+            String nameTask = resultSet.getString("name_task");
+            String description = resultSet.getString("DescriptionTask");
+            java.util.Date date = resultSet.getDate("dateTask");
+            Time time = resultSet.getTime("timeTask");
+            listTask.add(new Task(idTask, idUser, nameTask, description, date, time));
+        }
+        return listTask;
+    }
+
+    //Получение листа записей
+    public ArrayList<User> getListUser() throws SQLException {
+        ArrayList<User> arrayListUser = new ArrayList<User>();
+        resultSet = statement.executeQuery("select * from User");
+        while (resultSet.next()) {
+            int idUser = resultSet.getInt(1);
+            String nameUser = resultSet.getString(2);
+            arrayListUser.add(new User(idUser,nameUser));
+        }
+        return arrayListUser;
+    }
 }

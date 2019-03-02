@@ -1,6 +1,6 @@
 package ControllerClasses;
 
-import DataBase.DataBase;
+import DataBase.DataBaseOLD;
 import PojoClass.Task;
 import PojoClass.User;
 import javafx.fxml.FXML;
@@ -21,12 +21,12 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ControllerAddTask implements Initializable {
-    private DataBase dataBase;
+    private DataBaseOLD dataBaseOLD;
     private User user;
     private Task task;
 
-    public DataBase getDataBase() {
-        return dataBase;
+    public DataBaseOLD getDataBaseOLD() {
+        return dataBaseOLD;
     }
 
     public User getUser() {
@@ -41,8 +41,8 @@ public class ControllerAddTask implements Initializable {
         this.task = task;
     }
 
-    public void setDataBase(DataBase dataBase) {
-        this.dataBase = dataBase;
+    public void setDataBaseOLD(DataBaseOLD dataBaseOLD) {
+        this.dataBaseOLD = dataBaseOLD;
     }
 
     public void setUser(User user) {
@@ -128,10 +128,10 @@ public class ControllerAddTask implements Initializable {
         //TODO: create interface Validator with "validate" method, and use its implementations below
         if (dateNow.getTime() <= dateTask.getTime()) {
             if (buttonAdd.getText().equals("Добавить")) {
-                dataBase.addTask(user.getIdUser(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
+                dataBaseOLD.addTask(user.getIdUser(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
                 addAlter("Задача добавлена", "Информация");
             } else {
-                dataBase.updateTask(user.getIdUser(), task.getIdTask(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
+                dataBaseOLD.updateTask(user.getIdUser(), task.getIdTask(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
                 addAlter("Задача изменена", "Информация");
             }
         } else {

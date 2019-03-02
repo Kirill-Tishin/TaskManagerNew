@@ -1,6 +1,6 @@
 package ControllerClasses;
 
-import DataBase.DataBase;
+import DataBase.DataBaseOLD;
 import PojoClass.Task;
 import PojoClass.User;
 import javafx.collections.FXCollections;
@@ -32,16 +32,16 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ControllerFormUser implements Initializable {
-    private DataBase dataBase;
+    private DataBaseOLD dataBaseOLD;
     private User user;
 
-    public DataBase getDataBase() {
-        return dataBase;
+    public DataBaseOLD getDataBaseOLD() {
+        return dataBaseOLD;
     }
     public User getUser(){ return user; }
 
-    public void setDataBase(DataBase dataBase) {
-        this.dataBase = dataBase;
+    public void setDataBaseOLD(DataBaseOLD dataBaseOLD) {
+        this.dataBaseOLD = dataBaseOLD;
     }
 
     public void setUser(User user) {
@@ -98,7 +98,7 @@ public class ControllerFormUser implements Initializable {
     private void setTaskData() throws SQLException {
         tasksData=null;
         tasksData = FXCollections.observableArrayList();
-        List<Task> tasksList = dataBase.getTasksUser(user.getIdUser(),dataBase);
+        List<Task> tasksList = dataBaseOLD.getTasksUser(user.getIdUser(), dataBaseOLD);
         for(int i=0;i<tasksList.size();i++){
             tasksData.add(tasksList.get(i));
         }
@@ -107,7 +107,7 @@ public class ControllerFormUser implements Initializable {
     public void setButtonDellTask() throws SQLException, ClassNotFoundException {
         if(!tableViewTask.getSelectionModel().isEmpty()){
             Task task = tableViewTask.getSelectionModel().getSelectedItem();
-            dataBase.deleteTask(task.getIdTask());
+            dataBaseOLD.deleteTask(task.getIdTask());
             setTableViewTask();
         }else{
             addAlter("Для удаления необходимо выбрать задачу, которую вы хотите удалить","Ошибка");
@@ -150,7 +150,7 @@ public class ControllerFormUser implements Initializable {
         controllerAddTask.textFieldMinuteTask.setText("00");
         controllerAddTask.textFieldHourTask.setText("00");
 
-        controllerAddTask.setDataBase(dataBase); //Передача параметров
+        controllerAddTask.setDataBaseOLD(dataBaseOLD); //Передача параметров
         controllerAddTask.setUser(user);
 
         primaryStage.setTitle("PojoClass.Task Manager");
@@ -170,7 +170,7 @@ public class ControllerFormUser implements Initializable {
 
             ControllerAddTask controllerAddTask = fxmlLoader.getController();
 
-            controllerAddTask.setDataBase(dataBase); //Передача параметров
+            controllerAddTask.setDataBaseOLD(dataBaseOLD); //Передача параметров
             controllerAddTask.setUser(user);
             controllerAddTask.setTask(task);
 

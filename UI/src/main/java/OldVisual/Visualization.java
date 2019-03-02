@@ -1,6 +1,6 @@
 package OldVisual;
 
-import DataBase.DataBase;
+import DataBase.DataBaseOLD;
 import PojoClass.User;
 import Signal.Signal;
 
@@ -12,22 +12,22 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Visualization {
-    private DataBase dataBase;
+    private DataBaseOLD dataBaseOLD;
     private Scanner scanner;
     private User user;
     private Signal signal;
 
-    public Visualization(DataBase dataBase) {
-        this.dataBase = dataBase;
+    public Visualization(DataBaseOLD dataBaseOLD) {
+        this.dataBaseOLD = dataBaseOLD;
         this.scanner = new Scanner(System.in);
     }
 
-    public DataBase getDataBase() {
-        return dataBase;
+    public DataBaseOLD getDataBaseOLD() {
+        return dataBaseOLD;
     }
 
-    public void setDataBase(DataBase dataBase) {
-        this.dataBase = dataBase;
+    public void setDataBaseOLD(DataBaseOLD dataBaseOLD) {
+        this.dataBaseOLD = dataBaseOLD;
     }
 
     public void mainMenu() throws SQLException, IOException {
@@ -39,11 +39,11 @@ public class Visualization {
         if(name.equals("1")){
             System.exit(0);
         }else{
-            if(dataBase.getEqualsUserName(name)){
-                user = new User(dataBase.getIdUserInName(name),name,dataBase);
+            if(dataBaseOLD.getEqualsUserName(name)){
+                user = new User(dataBaseOLD.getIdUserInName(name),name, dataBaseOLD);
                 clearConsole();
                 System.out.println("Вход в систему выполнен");
-                signal = new Signal(dataBase,user);
+                signal = new Signal(dataBaseOLD,user);
                 signal.startSignal();//Запуск уведомлений сразу, как пользователь авторизовался
                 menuTaskUser();
             }else{
@@ -56,7 +56,7 @@ public class Visualization {
 
     //меню пользователя
     private void menuTaskUser() throws SQLException, IOException {
-        dataBase.printTasksUser(user.getIdUser());
+        dataBaseOLD.printTasksUser(user.getIdUser());
         System.out.println();
         System.out.println("Чтобы добавить задачу, нажмите 1");
         System.out.println("Чтобы удалить задачу, нажмите 2");
@@ -116,7 +116,7 @@ public class Visualization {
         System.out.println("Введите описание задачи: ");
         String descriptionTask = scanner.next();
 
-        dataBase.addTask(user.getIdUser(),nameTask,descriptionTask, dateSqlCalendar, timeSqlCalendar);
+        dataBaseOLD.addTask(user.getIdUser(),nameTask,descriptionTask, dateSqlCalendar, timeSqlCalendar);
         System.out.println("Задача добавлена.");
         clearConsole();
         menuTaskUser();
@@ -124,11 +124,11 @@ public class Visualization {
 
     //Удаление задачи
     private void dellTask() throws SQLException, IOException {
-        dataBase.printTasksUser(user.getIdUser());
+        dataBaseOLD.printTasksUser(user.getIdUser());
         System.out.println("Введите номер задачи, которую вы хотите удалить: ");
         int idTask = scanner.nextInt();
-        if(dataBase.getEqualdTask(idTask)){
-            dataBase.deleteTask(idTask);
+        if(dataBaseOLD.getEqualdTask(idTask)){
+            dataBaseOLD.deleteTask(idTask);
             System.out.println("Задача удалена");
             clearConsole();
             menuTaskUser();
@@ -141,10 +141,10 @@ public class Visualization {
 
     //Изменение задачи
     private void setTask() throws SQLException, IOException {
-        dataBase.printTasksUser(user.getIdUser());
+        dataBaseOLD.printTasksUser(user.getIdUser());
         System.out.println("Введите номер задачи, которую вы хотите изменить: ");
         int idTask = scanner.nextInt();
-        if (dataBase.getEqualdTask(idTask)) {
+        if (dataBaseOLD.getEqualdTask(idTask)) {
             System.out.println("Введите название задачи");
             String nameTask = scanner.next();
             System.out.println("Введите год исполнения задачи"); //Добавить проверку на те года, которые уже прошли
@@ -170,7 +170,7 @@ public class Visualization {
             System.out.println("Введите описание задачи: ");
             String descriptionTask = scanner.next();
 
-            dataBase.addTask(user.getIdUser(),nameTask,descriptionTask, date, time);
+            dataBaseOLD.addTask(user.getIdUser(),nameTask,descriptionTask, date, time);
             System.out.println("Задача изменена");
             clearConsole();
             menuTaskUser();

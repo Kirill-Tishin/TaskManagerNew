@@ -1,6 +1,6 @@
 package ControllerClasses;
 
-import DataBase.DataBase;
+import DataBase.DataBaseOLD;
 import PojoClass.User;
 import Signal.Signal;
 import javafx.event.EventHandler;
@@ -23,15 +23,15 @@ import java.util.ResourceBundle;
 
 public class ControllerLogin implements Initializable {
 
-    private DataBase dataBase = new DataBase();
+    private DataBaseOLD dataBaseOLD = new DataBaseOLD();
     private User user;
     private Signal signal;
 
     public ControllerLogin() throws SQLException {
     }
 
-    public DataBase getDataBase() {
-        return dataBase;
+    public DataBaseOLD getDataBaseOLD() {
+        return dataBaseOLD;
     }
     public User getUser(){
         return user;
@@ -50,9 +50,9 @@ public class ControllerLogin implements Initializable {
     @FXML
     public void setButtonOK() throws SQLException, IOException, ClassNotFoundException {
         if(!textFieldLogin.equals("")){
-            if(dataBase.getEqualsUserName(textFieldLogin.getText())){
-                user = new User(dataBase.getIdUserInName(textFieldLogin.getText()),textFieldLogin.getText(),dataBase);
-                signal = new Signal(dataBase,user);
+            if(dataBaseOLD.getEqualsUserName(textFieldLogin.getText())){
+                user = new User(dataBaseOLD.getIdUserInName(textFieldLogin.getText()),textFieldLogin.getText(), dataBaseOLD);
+                signal = new Signal(dataBaseOLD,user);
                 signal.startSignal();//Запуск уведомлений сразу, как пользователь авторизовался
 
                 Stage primaryStage = new Stage();
@@ -63,7 +63,7 @@ public class ControllerLogin implements Initializable {
 
                 ControllerFormUser controllerFormUser = fxmlLoader.getController();
 
-                controllerFormUser.setDataBase(dataBase); //Передача параметров
+                controllerFormUser.setDataBaseOLD(dataBaseOLD); //Передача параметров
                 controllerFormUser.setUser(user);
                 controllerFormUser.setTableViewTask();
 

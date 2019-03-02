@@ -1,6 +1,6 @@
 package Thread;
 
-import DataBase.DataBase;
+import DataBase.DataBaseOLD;
 import PojoClass.Task;
 import javafx.application.Platform;
 
@@ -9,12 +9,12 @@ import java.sql.SQLException;
 public class NotificationThread extends Thread {
     private TestFX testFX;
     private Task task; //final
-    private DataBase dataBase;
+    private DataBaseOLD dataBaseOLD;
 
-    public NotificationThread(Task task,DataBase dataBase) {
+    public NotificationThread(Task task, DataBaseOLD dataBaseOLD) {
         this.task = task;
-        this.dataBase = dataBase;
-        testFX = new TestFX(task,dataBase);
+        this.dataBaseOLD = dataBaseOLD;
+        testFX = new TestFX(task, dataBaseOLD);
     }
 
     public void run() {

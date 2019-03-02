@@ -1,6 +1,6 @@
 package Thread;
 
-import DataBase.DataBase;
+import DataBase.DataBaseOLD;
 import PojoClass.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,11 +16,11 @@ import java.util.ResourceBundle;
 
 public class TestFX implements Initializable {
     private Task task;
-    private DataBase dataBase;
+    private DataBaseOLD dataBaseOLD;
 
-    public TestFX(Task task,DataBase dataBase){
+    public TestFX(Task task, DataBaseOLD dataBaseOLD){
         this.task = task;
-        this.dataBase = dataBase;
+        this.dataBaseOLD = dataBaseOLD;
     }
 
     @Override
@@ -51,9 +51,9 @@ public class TestFX implements Initializable {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(task.getTimeTask());
             calendar.add(Calendar.MINUTE, 5);
-            dataBase.updateTask(task.getId_User(),task.getIdTask(),task.getNameTask(),task.getDescriptionTask(),calendar.getTime(),new Time(calendar.getTimeInMillis()));
+            dataBaseOLD.updateTask(task.getIdUser(),task.getIdTask(),task.getNameTask(),task.getDescriptionTask(),calendar.getTime(),new Time(calendar.getTimeInMillis()));
         } else {
-            dataBase.deleteTask(task.getIdTask());
+            dataBaseOLD.deleteTask(task.getIdTask());
         }
     }
 }

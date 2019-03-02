@@ -1,6 +1,6 @@
 package Thread;
 
-import DataBase.DataBase;
+import DataBase.DataBaseOLD;
 import PojoClass.Task;
 import PojoClass.User;
 
@@ -12,13 +12,13 @@ import java.util.*;
 //TODO: Create also SignalThread for notfications **************************************
 public class MonitoringThread extends Thread {
     private List<Task> taskList; //Тут все задачи одного пользователя
-    private DataBase dataBase;
+    private DataBaseOLD dataBaseOLD;
     private User user;
     private NotificationThread notificationThread;
 
     //TODO: remove "n" from construstor, use logic with "interrupted" flag **************************************
-    public MonitoringThread(DataBase dataBase, User user) throws SQLException {
-        this.dataBase = dataBase;
+    public MonitoringThread(DataBaseOLD dataBaseOLD, User user) throws SQLException {
+        this.dataBaseOLD = dataBaseOLD;
         this.user = user;
     }
 
@@ -30,7 +30,7 @@ public class MonitoringThread extends Thread {
                 break;
             }
             try {
-                this.taskList = dataBase.getTasksUser(user.getIdUser(),dataBase); //Постоянное обновление листа записей
+                this.taskList = dataBaseOLD.getTasksUser(user.getIdUser(), dataBaseOLD); //Постоянное обновление листа записей
             } catch (SQLException e) {
                 e.printStackTrace();
             }

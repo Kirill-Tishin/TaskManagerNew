@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class TestDao {
     public static void main(String [] args) throws SQLException, IOException {
-      //  DataBase dataBase = new DataBase();
+      //  DataBaseOLD dataBase = new DataBaseOLD();
         //Для запуска
       /*  OldVisual.Visualization visualization =  new OldVisual.Visualization(dataBase);
         visualization.mainMenu();*/

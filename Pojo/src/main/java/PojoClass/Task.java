@@ -1,52 +1,37 @@
 package PojoClass;
-
-import DataBase.DataBase;
-
-import java.sql.SQLException;
 import java.sql.Time;
 import java.util.Date;
 
 public class Task {
-    private DataBase dataBase;
     private int idTask;
     private String nameTask;
     private String descriptionTask;
-    private int id_User;
+    private int idUser;
     private Date dateTask; //dateTask
     private Time timeTask; //timeTask
 
-    public Task(int idTask, int id_User, String nameTask, String descriptionTask, Date dateTask, Time timeTask, DataBase dataBase) throws SQLException {
-        if(dataBase.getEqualsUserId(id_User)){
-            this.idTask=idTask;
-            this.id_User=id_User;
-            this.nameTask=nameTask;
-            this.descriptionTask =descriptionTask;
-            this.dateTask = dateTask;
-            this.timeTask = timeTask;
-            this.dataBase=dataBase;
-        }else {
-            System.out.println("Данный пользователь отсутствует в системе");
-        }
-    }
-
-    public DataBase getDataBase() {
-        return dataBase;
-    }
-
-    public void setDataBase(DataBase dataBase) {
-        this.dataBase = dataBase;
+    public Task(int idTask, int idUser, String nameTask, String descriptionTask, Date dateTask, Time timeTask) {
+        this.idTask=idTask;
+        this.idUser = idUser;
+        this.nameTask=nameTask;
+        this.descriptionTask =descriptionTask;
+        this.dateTask = dateTask;
+        this.timeTask = timeTask;
     }
 
     public int getIdTask() {
         return idTask;
     }
 
+    public void setIdTask(int idTask) {
+        this.idTask = idTask;
+    }
+
     public String getNameTask() {
         return nameTask;
     }
 
-    public void setNameTask(String nameTask) throws SQLException {
-        dataBase.updateTask(this.id_User,this.idTask,nameTask,this.descriptionTask,this.dateTask,this.timeTask);
+    public void setNameTask(String nameTask) {
         this.nameTask = nameTask;
     }
 
@@ -54,21 +39,23 @@ public class Task {
         return descriptionTask;
     }
 
-    public void setDescriptionTask(String descriptionTask) throws SQLException {
-        dataBase.updateTask(this.id_User,this.idTask,this.nameTask,descriptionTask,this.dateTask,this.timeTask);
+    public void setDescriptionTask(String descriptionTask) {
         this.descriptionTask = descriptionTask;
     }
 
-    public int getId_User() {
-        return id_User;
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public Date getDateTask() {
         return dateTask;
     }
 
-    public void setDateTask(Date dateTask) throws SQLException {
-        dataBase.updateTask(this.id_User,this.idTask,this.nameTask,this.descriptionTask,dateTask,this.timeTask);
+    public void setDateTask(Date dateTask) {
         this.dateTask = dateTask;
     }
 
@@ -76,8 +63,7 @@ public class Task {
         return timeTask;
     }
 
-    public void setTimeTask(Time timeTask) throws SQLException {
-        dataBase.updateTask(this.id_User,this.idTask,this.nameTask,this.descriptionTask,this.dateTask,timeTask);
+    public void setTimeTask(Time timeTask) {
         this.timeTask = timeTask;
     }
 }
