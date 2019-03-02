@@ -23,9 +23,12 @@
     <modules>
         <module>Dao</module>
         <module>Pojo</module>
+        <!--
         <module>Alret</module>
         <module>UI</module>
         <module>TaskLog</module>
+        -->
+
     </modules>
 
     <dependencies>

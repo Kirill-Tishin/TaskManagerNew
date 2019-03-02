@@ -115,7 +115,7 @@ public class DataBaseOLD {
     }
 
     //Добавление задачи
-    public void addTask(int idUser, String nameTask, String descriptionTask, java.util.Date date, Time time) throws SQLException { //data and time добавить
+    public void addTask(int idUser, String nameTask, String descriptionTask, java.util.Date date, Time time) throws SQLException {
         java.sql.Date dateNew = new java.sql.Date(date.getTime());
         preparedStatement = connection.prepareStatement("INSERT into Task(name_task,DescriptionTask,dateTask,timeTask,id_user) values (?,?,?,?,?)");//id_task,
         //  preparedStatement.setInt(1, getMaxIdTask()+1);
@@ -129,7 +129,7 @@ public class DataBaseOLD {
     }
 
     //Обновление задачи
-    public void updateTask(int idUser, int idTask, String nameTask, String descriptionTask, java.util.Date date, Time time) throws SQLException { //data and time
+    public void updateTask(int idUser, int idTask, String nameTask, String descriptionTask, java.util.Date date, Time time) throws SQLException {
         java.sql.Date dateNew = new java.sql.Date(date.getTime());
         preparedStatement = connection.prepareStatement("UPDATE Task set name_task = ?,DescriptionTask=?,dateTask=?,timeTask=? where id_user=? and id_task=?");
         preparedStatement.setString(1, nameTask);
@@ -389,7 +389,7 @@ public class DataBaseOLD {
         return listTask;
     }
 
-    //Получение листа записей
+    //Получение листа пользователей
     public ArrayList<User> getListUser() throws SQLException {
         ArrayList<User> arrayListUser = new ArrayList<User>();
         resultSet = statement.executeQuery("select * from User");

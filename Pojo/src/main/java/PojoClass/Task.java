@@ -8,6 +8,7 @@ public class Task {
     private String descriptionTask;
     private int idUser;
     private Date dateTask; //dateTask
+
     private Time timeTask; //timeTask
 
     public Task(int idTask, int idUser, String nameTask, String descriptionTask, Date dateTask, Time timeTask) {
