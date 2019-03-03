@@ -2,7 +2,6 @@ package Thread;
 
 import Compound_DB_and_pojo.Compound;
 import InterfaceDao.TaskInterface;
-import InterfaceDao.UserInterface;
 import PojoClass.Task;
 import PojoClass.User;
 import javafx.fxml.FXML;
@@ -53,9 +52,14 @@ public class TestFX implements Initializable {
         Optional<ButtonType> option = alert.showAndWait();
 
         if (option.get() == postpone) {
-            //Добавление 5-ти минтут к задаче
-            Calendar calendar = Calendar.getInstance();
+            //Добавление 5-ти минтут к времени задачи задаче
+          /*  Calendar calendar = Calendar.getInstance();
             calendar.setTime(task.getTimeTask());
+            calendar.add(Calendar.MINUTE, 5);*/
+
+          //Добавление 5-ти минтут к нынешнему времени
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(calendar.getTime());
             calendar.add(Calendar.MINUTE, 5);
 
             ArrayList arrayListNew = user.getTaskList();

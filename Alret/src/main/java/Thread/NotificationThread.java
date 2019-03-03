@@ -12,7 +12,7 @@ public class NotificationThread extends Thread {
     private Task task;
     private User user;
 
-    public NotificationThread(User user,Task task, Compound compound) {
+    public NotificationThread(User user, Task task, Compound compound) {
         this.task = task;
         this.user = user;
         testFX = new TestFX(user, task, compound);

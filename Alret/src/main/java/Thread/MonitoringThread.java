@@ -12,7 +12,7 @@ public class MonitoringThread extends Thread {
     private Compound compound;
     private User user;
     private NotificationThread notificationThread;
-
+    private ArrayList<Task> tasksWorking = new ArrayList<Task>();
 
     public MonitoringThread(Compound compound, User user) throws SQLException {
         this.compound = compound;
@@ -22,7 +22,7 @@ public class MonitoringThread extends Thread {
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
             try {
-                sleep(15000); //Приостановка на 15 секунд
+                sleep(5000); //Приостановка на 15 секунд //15000
             } catch (InterruptedException e) {
                 break;
             }
@@ -36,24 +36,28 @@ public class MonitoringThread extends Thread {
                 Date dateNow = calendar.getTime();
                 Time timeNow = new Time(dateNow.getTime());
 
-                //TODO: do not shot notification for same task twice until we got response from user
+                //TODO: do not shot notification for same task twice until we got response from user ******************************************
                 if ((dateTask.getTime() <= dateNow.getTime()) && (timeTask.getTime() <= timeNow.getTime())) {
-                    notificationThread = new NotificationThread(user,task,compound);
-                    notificationThread.start();
+                    if(!tasksWorking.contains(task)){ //Проверка существрования элемента
+                        tasksWorking.add(task);
+                        notificationThread = new NotificationThread(user,task,compound);
+                        notificationThread.start();
+                    }else{
+                        System.out.println("Task выведена");
+                        //Обновление ,если задача ужеудалена, чтобы не получилось, случайно, листа огромного размера из задач, которые уже удалены или отложены,
+                        // но в этом листе их старая версия уже осталась
+                        ArrayList<Task> newTasks = new ArrayList<>();
+                        for(int j=0;j<taskList.size();j++){
+                            for(int k=0;k<tasksWorking.size();k++){
+                                if(taskList.get(j)==tasksWorking.get(k)){
+                                    newTasks.add(tasksWorking.get(k));
+                                }
+                            }
+                        }
+                        tasksWorking=newTasks;
+                    }
                 }
-            }
-            Set<Thread> threads = Thread.getAllStackTraces().keySet();
-            for (Thread thread : threads) {
-                System.out.println("Thread: " + thread + ":" + "state:" + thread.getState());
             }
         }
     }
-
-    //Сравнение 2-х потоков
- /*   public static boolean equalStreams(Stream<?>...streams) {
-        List<Iterator<?>>is = Arrays.stream(streams).map(Stream::iterator).collect(Collectors.toList());
-        while(is.stream().allMatch(Iterator::hasNext))
-            if(is.stream().map(Iterator::next).distinct().limit(2).count()>1) return false;
-        return is.stream().noneMatch(Iterator::hasNext);
-    }*/
 }

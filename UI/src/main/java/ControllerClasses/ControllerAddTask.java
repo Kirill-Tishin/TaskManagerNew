@@ -5,6 +5,7 @@ import InterfaceDao.TaskInterface;
 import InterfaceDao.UserInterface;
 import PojoClass.Task;
 import PojoClass.User;
+import ValidatorClass.Validator;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -29,6 +30,7 @@ public class ControllerAddTask implements Initializable {
     private TaskInterface taskInterface;
     private User user;
     private Task task;
+    private Validator validator = new Validator();
 
     public User getUser() {
         return user;
@@ -69,44 +71,26 @@ public class ControllerAddTask implements Initializable {
         alert.showAndWait();
     }
 
-    //Проверка, нет ли букв в строке
-    private boolean checkNum(String str) {
-        boolean flag = true;
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) < '0' || str.charAt(i) > '9') {
-                addAlter("Поле времени должно содержать только цыфры", "Ошибка");
-                flag = false;
-                break;
-            }
-        }
-        return flag;
-    }
-
     public void setButtonAdd() throws SQLException, ParseException {
         int hour = 0;
         int minute = 0;
-        if (!textFieldNameTask.getText().equals("")) {
+        if (validator.checkNameTask(textFieldNameTask.getText())) {
             String dateStr = datePic.getEditor().getText();
             DateFormat format = new SimpleDateFormat("d.M.yyyy");
             Date date = format.parse(dateStr);
-
             if ((!textFieldHourTask.getText().equals("")) && (!textFieldMinuteTask.getText().equals(""))) {
                 String hourText = textFieldHourTask.getText();
                 String minuteText = textFieldMinuteTask.getText();
-                if ((checkNum(hourText)) && (checkNum(minuteText))) {
+                if ((validator.checkNum(hourText)) && (validator.checkNum(minuteText))) {
                     hour = Integer.parseInt(textFieldHourTask.getText());
                     minute = Integer.parseInt(textFieldMinuteTask.getText());
-                    if ((hour >= 0) && (hour < 24) && (minute >= 0) && (minute < 60)) {
+                    if (validator.checkTimeMinAndHour(hour,minute)) {
                         addTask(hour, minute, date);
-                    } else {
-                        addAlter("Время должно быть корректным, т.е. часы от 0 до 23, а минуты от 0 до 59!", "Ошибка");
                     }
                 }
             } else {
                 addTask(hour, minute, date);
             }
-        } else {
-            addAlter("Введите название задачи", "Ошибка");
         }
     }
 
@@ -122,8 +106,8 @@ public class ControllerAddTask implements Initializable {
 
         Date dateTask = calendar.getTime();
 
-        //TODO: create interface Validator with "validate" method, and use its implementations below
-        if (dateNow.getTime() <= dateTask.getTime()) {
+        //TODO: create interface Validator with "validate" method, and use its implementations below ********************************
+        if (validator.checkOldTime(dateNow,dateTask)) {
             if (buttonAdd.getText().equals("Добавить")) {
                 ArrayList arrayListNew = user.getTaskList();
                 //Обновили в бд
@@ -131,12 +115,8 @@ public class ControllerAddTask implements Initializable {
                 arrayListNew.add(taskInterface.getTask(compound.getMaxIdTask())); //Последняя добавленная задача
                 //Обновили у пользователя
                 user.setTaskList(arrayListNew);
-
-              //  dataBaseOLD.addTask(user.getIdUser(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
-
                 addAlter("Задача добавлена", "Информация");
             } else {
-
                 ArrayList arrayListNew = user.getTaskList();
                 //Обновили в бд
                 taskInterface.updateTask(user.getIdUser(), task.getIdTask(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
@@ -145,13 +125,8 @@ public class ControllerAddTask implements Initializable {
                 Task taskNew = new Task(task.getIdTask(), user.getIdUser(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
                 arrayListNew.add(taskNew);
                 user.setTaskList(arrayListNew);
-
-              //  dataBaseOLD.updateTask(user.getIdUser(), task.getIdTask(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
-
                 addAlter("Задача изменена", "Информация");
             }
-        } else {
-            addAlter("Дата уже устарела", "Ошибка");
         }
     }
 
