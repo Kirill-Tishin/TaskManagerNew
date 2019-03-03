@@ -1,6 +1,6 @@
 package Thread;
 
-import Compound_DB_and_pojo.Compound;
+import Compound.Compound;
 import PojoClass.Task;
 import PojoClass.User;
 

@@ -1,6 +1,6 @@
 package ControllerClasses;
 
-import Compound_DB_and_pojo.Compound;
+import Compound.Compound;
 import PojoClass.User;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

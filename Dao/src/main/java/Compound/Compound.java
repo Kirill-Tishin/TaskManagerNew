@@ -1,4 +1,4 @@
-package Compound_DB_and_pojo;
+package Compound;
 
 import DaoClass.DaoDB;
 import DaoClass.TaskDao;

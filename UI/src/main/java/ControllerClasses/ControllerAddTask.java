@@ -1,6 +1,6 @@
 package ControllerClasses;
 
-import Compound_DB_and_pojo.Compound;
+import Compound.Compound;
 import InterfaceDao.TaskInterface;
 import InterfaceDao.UserInterface;
 import PojoClass.Task;

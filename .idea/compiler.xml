@@ -10,7 +10,6 @@
         <module name="Alret" />
         <module name="Dao" />
         <module name="Pojo" />
-        <module name="TaskLog" />
         <module name="UI" />
       </profile>
     </annotationProcessing>
