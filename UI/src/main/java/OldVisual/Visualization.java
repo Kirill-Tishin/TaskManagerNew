@@ -40,10 +40,10 @@ public class Visualization {
             System.exit(0);
         }else{
             if(dataBaseOLD.getEqualsUserName(name)){
-                user = new User(dataBaseOLD.getIdUserInName(name),name, dataBaseOLD);
+           //     user = new User(dataBaseOLD.getIdUserInName(name),name, dataBaseOLD);
                 clearConsole();
                 System.out.println("Вход в систему выполнен");
-                signal = new Signal(dataBaseOLD,user);
+          //      signal = new Signal(dataBaseOLD,user);
                 signal.startSignal();//Запуск уведомлений сразу, как пользователь авторизовался
                 menuTaskUser();
             }else{

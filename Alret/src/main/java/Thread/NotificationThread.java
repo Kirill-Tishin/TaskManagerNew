@@ -1,20 +1,21 @@
 package Thread;
 
-import DataBase.DataBaseOLD;
+import Compound_DB_and_pojo.Compound;
 import PojoClass.Task;
+import PojoClass.User;
 import javafx.application.Platform;
 
 import java.sql.SQLException;
 
 public class NotificationThread extends Thread {
     private TestFX testFX;
-    private Task task; //final
-    private DataBaseOLD dataBaseOLD;
+    private Task task;
+    private User user;
 
-    public NotificationThread(Task task, DataBaseOLD dataBaseOLD) {
+    public NotificationThread(User user,Task task, Compound compound) {
         this.task = task;
-        this.dataBaseOLD = dataBaseOLD;
-        testFX = new TestFX(task, dataBaseOLD);
+        this.user = user;
+        testFX = new TestFX(user, task, compound);
     }
 
     public void run() {

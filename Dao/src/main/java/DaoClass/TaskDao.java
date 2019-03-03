@@ -9,7 +9,6 @@ import java.util.List;
 
 public class TaskDao implements TaskInterface {
     private DaoDB daoDB;
-    private Connection connection;
 
     public TaskDao(DaoDB daoDB) {
         this.daoDB = daoDB;
@@ -33,7 +32,7 @@ public class TaskDao implements TaskInterface {
     public void addTask(int idUser, String nameTask, String descriptionTask, java.util.Date date, Time time) throws SQLException {
         java.sql.Date dateNew = new java.sql.Date(date.getTime());
         Connection connection = daoDB.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT into Task(id_task,name_task,DescriptionTask,dateTask,timeTask,id_user) values (?,?,?,?,?)");
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT into Task(name_task,DescriptionTask,dateTask,timeTask,id_user) values (?,?,?,?,?)");
         preparedStatement.setString(1, nameTask);
         preparedStatement.setString(2, descriptionTask);
         preparedStatement.setDate(3, dateNew);

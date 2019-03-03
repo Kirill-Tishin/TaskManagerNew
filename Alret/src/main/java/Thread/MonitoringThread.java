@@ -1,24 +1,21 @@
 package Thread;
 
-import DataBase.DataBaseOLD;
+import Compound_DB_and_pojo.Compound;
 import PojoClass.Task;
 import PojoClass.User;
 
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.*;
-
-//TODO: Rename class to Thread.MonitoringThread **********************************************
-//TODO: Create also SignalThread for notfications **************************************
 public class MonitoringThread extends Thread {
     private List<Task> taskList; //Тут все задачи одного пользователя
-    private DataBaseOLD dataBaseOLD;
+    private Compound compound;
     private User user;
     private NotificationThread notificationThread;
 
-    //TODO: remove "n" from construstor, use logic with "interrupted" flag **************************************
-    public MonitoringThread(DataBaseOLD dataBaseOLD, User user) throws SQLException {
-        this.dataBaseOLD = dataBaseOLD;
+
+    public MonitoringThread(Compound compound, User user) throws SQLException {
+        this.compound = compound;
         this.user = user;
     }
 
@@ -29,12 +26,7 @@ public class MonitoringThread extends Thread {
             } catch (InterruptedException e) {
                 break;
             }
-            try {
-                this.taskList = dataBaseOLD.getTasksUser(user.getIdUser(), dataBaseOLD); //Постоянное обновление листа записей
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
+            this.taskList = user.getTaskList(); //Получене записей пользователя не из бд, а из его листа
             for (int i = 0; i < taskList.size(); i++) {
                 Task task = taskList.get(i);
                 Date dateTask = task.getDateTask();
@@ -46,7 +38,7 @@ public class MonitoringThread extends Thread {
 
                 //TODO: do not shot notification for same task twice until we got response from user
                 if ((dateTask.getTime() <= dateNow.getTime()) && (timeTask.getTime() <= timeNow.getTime())) {
-                    notificationThread = new NotificationThread(task,user.getDataBase());
+                    notificationThread = new NotificationThread(user,task,compound);
                     notificationThread.start();
                 }
             }

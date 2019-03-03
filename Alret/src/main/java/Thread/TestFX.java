@@ -1,7 +1,10 @@
 package Thread;
 
-import DataBase.DataBaseOLD;
+import Compound_DB_and_pojo.Compound;
+import InterfaceDao.TaskInterface;
+import InterfaceDao.UserInterface;
 import PojoClass.Task;
+import PojoClass.User;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -10,17 +13,20 @@ import javafx.scene.control.ButtonType;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class TestFX implements Initializable {
+    private User user;
     private Task task;
-    private DataBaseOLD dataBaseOLD;
+    private TaskInterface taskInterface;
 
-    public TestFX(Task task, DataBaseOLD dataBaseOLD){
+    public TestFX(User user, Task task, Compound compound) {
         this.task = task;
-        this.dataBaseOLD = dataBaseOLD;
+        this.user = user;
+        this.taskInterface = compound.getTaskInterface();
     }
 
     @Override
@@ -51,9 +57,20 @@ public class TestFX implements Initializable {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(task.getTimeTask());
             calendar.add(Calendar.MINUTE, 5);
-            dataBaseOLD.updateTask(task.getIdUser(),task.getIdTask(),task.getNameTask(),task.getDescriptionTask(),calendar.getTime(),new Time(calendar.getTimeInMillis()));
+
+            ArrayList arrayListNew = user.getTaskList();
+            //Обновили в бд
+            taskInterface.updateTask(task.getIdUser(), task.getIdTask(), task.getNameTask(), task.getDescriptionTask(), calendar.getTime(), new Time(calendar.getTimeInMillis()));
+            //Обновили у пользователя
+            arrayListNew.remove(task);
+            Task taskNew = new Task(task.getIdTask(), task.getIdUser(), task.getNameTask(), task.getDescriptionTask(), calendar.getTime(), new Time(calendar.getTimeInMillis()));
+            arrayListNew.add(taskNew);
+            user.setTaskList(arrayListNew);
         } else {
-            dataBaseOLD.deleteTask(task.getIdTask());
+            ArrayList arrayListNew = user.getTaskList();
+            arrayListNew.remove(task);
+            user.setTaskList(arrayListNew); //Удилили задачу из листа пользователя
+            taskInterface.deleteTask(task); //Удилили задачу из бд
         }
     }
 }

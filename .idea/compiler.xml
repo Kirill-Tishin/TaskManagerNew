@@ -15,9 +15,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Alret" target="8" />
       <module name="TaskLog" target="8" />
-      <module name="UI" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

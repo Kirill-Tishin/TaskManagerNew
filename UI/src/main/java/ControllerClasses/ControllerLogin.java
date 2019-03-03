@@ -1,8 +1,7 @@
 package ControllerClasses;
 
-import DataBase.DataBaseOLD;
+import Compound_DB_and_pojo.Compound;
 import PojoClass.User;
-import Signal.Signal;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import Signal.Signal;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,21 +22,12 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ControllerLogin implements Initializable {
-
-    private DataBaseOLD dataBaseOLD = new DataBaseOLD();
+    private Compound compound = new Compound();
     private User user;
     private Signal signal;
 
     public ControllerLogin() throws SQLException {
     }
-
-    public DataBaseOLD getDataBaseOLD() {
-        return dataBaseOLD;
-    }
-    public User getUser(){
-        return user;
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -45,31 +36,34 @@ public class ControllerLogin implements Initializable {
     @FXML
     public TextField textFieldLogin;
     public Button buttonOK;
-    public Alert alert;
+    private Alert alert;
 
     @FXML
     public void setButtonOK() throws SQLException, IOException, ClassNotFoundException {
         if(!textFieldLogin.equals("")){
-            if(dataBaseOLD.getEqualsUserName(textFieldLogin.getText())){
-                user = new User(dataBaseOLD.getIdUserInName(textFieldLogin.getText()),textFieldLogin.getText(), dataBaseOLD);
-                signal = new Signal(dataBaseOLD,user);
+            if(compound.getEqualsUserName(textFieldLogin.getText())){
+                user = compound.getUserInterface().getUser(compound.getIdUserInName(textFieldLogin.getText()));
+                compound.createListForUserId(user);
+                signal = new Signal(compound,user);
                 signal.startSignal();//Запуск уведомлений сразу, как пользователь авторизовался
 
                 Stage primaryStage = new Stage();
                 primaryStage.initModality(Modality.APPLICATION_MODAL); //Чтобы прошлая форма была не активна
 
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FormMenuUser.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FormMenuUser.fxml"));
                 Pane rootFormUser = fxmlLoader.load();
 
                 ControllerFormUser controllerFormUser = fxmlLoader.getController();
 
-                controllerFormUser.setDataBaseOLD(dataBaseOLD); //Передача параметров
+                controllerFormUser.setCompound(compound); //Передача параметров
+                controllerFormUser.setUserInterface(compound.getUserInterface());
+                controllerFormUser.setTaskInterface(compound.getTaskInterface());
                 controllerFormUser.setUser(user);
                 controllerFormUser.setTableViewTask();
 
                 textFieldLogin.setText("");
 
-                primaryStage.setTitle("PojoClass.Task Manager");
+                primaryStage.setTitle("Task Manager");
                 primaryStage.setScene(new Scene(rootFormUser));
                 primaryStage.setResizable(false);
                 primaryStage.show();

@@ -2,14 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="213d5afa-7316-483e-a414-5247f703f4d7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TaskLog/src/main/java/TaskLog/TaskLogOld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Alret/Alret.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Alret/Alret.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alret/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Alret/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alret/src/main/java/Signal/Signal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Alret/src/main/java/Signal/Signal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alret/src/main/java/Thread/MonitoringThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/Alret/src/main/java/Thread/MonitoringThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alret/src/main/java/Thread/NotificationThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/Alret/src/main/java/Thread/NotificationThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alret/src/main/java/Thread/TestFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/Alret/src/main/java/Thread/TestFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dao/src/main/java/Compound_DB_and_pojo/Compound.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dao/src/main/java/Compound_DB_and_pojo/Compound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dao/src/main/java/DaoClass/DaoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dao/src/main/java/DaoClass/DaoDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dao/src/main/java/DaoClass/TaskDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dao/src/main/java/DaoClass/TaskDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dao/src/main/java/DataBase/DataBaseOLD.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dao/src/main/java/DataBase/DataBaseOLD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dao/src/main/java/InterfaceDao/TaskInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dao/src/main/java/InterfaceDao/TaskInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pojo/src/main/java/PojoClass/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/Pojo/src/main/java/PojoClass/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dao/src/main/java/DaoClass/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dao/src/main/java/DaoClass/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dao/src/test/java/TestClassDataBase/TestDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dao/src/test/java/TestClassDataBase/TestDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pojo/src/main/java/PojoClass/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Pojo/src/main/java/PojoClass/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskLog/src/main/java/TaskLog/TaskLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/TaskLog/src/main/java/TaskLog/TaskLog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/UI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/UI.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerAddTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerAddTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerFormUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerFormUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/main/java/OldVisual/Visualization.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/main/java/OldVisual/Visualization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/main/java/StartApp/MainVisual.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/main/java/StartApp/MainVisual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/main/resources/FormInput.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/main/resources/FormInput.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -83,41 +99,41 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="2" />
-          <entry key="fxml" value="37" />
-          <entry key="iml" value="1" />
-          <entry key="java" value="322" />
+          <entry key="class" value="3" />
+          <entry key="fxml" value="40" />
+          <entry key="iml" value="2" />
+          <entry key="java" value="421" />
           <entry key="pom" value="1" />
           <entry key="sql" value="1" />
-          <entry key="task" value="15" />
-          <entry key="user" value="4" />
-          <entry key="xml" value="37" />
+          <entry key="task" value="16" />
+          <entry key="user" value="6" />
+          <entry key="xml" value="56" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="2" />
-          <entry key="Database Element" value="19" />
-          <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="322" />
+          <entry key="CLASS" value="3" />
+          <entry key="Database Element" value="22" />
+          <entry key="IDEA_MODULE" value="2" />
+          <entry key="JAVA" value="421" />
           <entry key="Scratch" value="1" />
-          <entry key="XML" value="75" />
+          <entry key="XML" value="97" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="12" />
+          <entry key="dummy" value="15" />
           <entry key="fxml" value="35" />
-          <entry key="java" value="9667" />
-          <entry key="txt" value="39" />
-          <entry key="xml" value="39" />
+          <entry key="java" value="11377" />
+          <entry key="txt" value="61" />
+          <entry key="xml" value="65" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9667" />
-          <entry key="PLAIN_TEXT" value="51" />
-          <entry key="XML" value="74" />
+          <entry key="JAVA" value="11377" />
+          <entry key="PLAIN_TEXT" value="76" />
+          <entry key="XML" value="100" />
         </counts>
       </usages-collector>
     </session>
@@ -125,10 +141,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Dao/src/main/java/DataBase/DataBaseOLD.java">
+        <entry file="file://$PROJECT_DIR$/Alret/src/main/java/Thread/MonitoringThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="391" column="35" selection-start-line="391" selection-start-column="35" selection-end-line="391" selection-end-column="35" />
+            <state relative-caret-position="290">
+              <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -141,8 +157,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -183,31 +199,34 @@
         <option value="$PROJECT_DIR$/src/main/java/ControllerAddTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/MonitoringThread.java" />
-        <option value="$PROJECT_DIR$/Alret/pom.xml" />
         <option value="$PROJECT_DIR$/TaskLog/pom.xml" />
-        <option value="$PROJECT_DIR$/UI/pom.xml" />
-        <option value="$PROJECT_DIR$/TaskLog/src/main/java/TaskLog/TaskLog.java" />
-        <option value="$PROJECT_DIR$/Alret/src/main/java/Thread/TestFX.java" />
-        <option value="$PROJECT_DIR$/Alret/src/main/java/Thread/MonitoringThread.java" />
-        <option value="$PROJECT_DIR$/Alret/src/main/java/Thread/NotificationThread.java" />
-        <option value="$PROJECT_DIR$/Alret/src/main/java/Signal/Signal.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/Dao/src/test/java/TestClassDataBase/TestDao.java" />
-        <option value="$PROJECT_DIR$/UI/src/main/java/OldVisual/Visualization.java" />
-        <option value="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerLogin.java" />
-        <option value="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerAddTask.java" />
-        <option value="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerFormUser.java" />
         <option value="$PROJECT_DIR$/Pojo/pom.xml" />
         <option value="$PROJECT_DIR$/Dao/pom.xml" />
-        <option value="$PROJECT_DIR$/Pojo/src/main/java/PojoClass/User.java" />
-        <option value="$PROJECT_DIR$/Dao/src/main/java/Compound_DB_and_pojo/Compound.java" />
-        <option value="$PROJECT_DIR$/Dao/src/main/java/DaoClass/DaoDB.java" />
         <option value="$PROJECT_DIR$/Dao/src/main/java/DataBase/DataBase.java" />
-        <option value="$PROJECT_DIR$/Dao/src/main/java/DaoClass/UserDao.java" />
         <option value="$PROJECT_DIR$/Pojo/src/main/java/PojoClass/Task.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/Dao/src/main/java/DaoClass/TaskDao.java" />
         <option value="$PROJECT_DIR$/Dao/src/main/java/DataBase/DataBaseOLD.java" />
+        <option value="$PROJECT_DIR$/Dao/src/main/java/DaoClass/DaoDB.java" />
+        <option value="$PROJECT_DIR$/Dao/src/test/java/TestClassDataBase/TestDao.java" />
+        <option value="$PROJECT_DIR$/Dao/src/main/java/DaoClass/TaskDao.java" />
+        <option value="$PROJECT_DIR$/TaskLog/src/main/java/TaskLog/TaskLogOld.java" />
+        <option value="$PROJECT_DIR$/TaskLog/src/main/java/TaskLog/TaskLog.java" />
+        <option value="$PROJECT_DIR$/UI/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/Alret/src/main/java/Signal/Signal.java" />
+        <option value="$PROJECT_DIR$/Pojo/src/main/java/PojoClass/User.java" />
+        <option value="$PROJECT_DIR$/Alret/pom.xml" />
+        <option value="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerAddTask.java" />
+        <option value="$PROJECT_DIR$/UI/src/main/java/OldVisual/Visualization.java" />
+        <option value="$PROJECT_DIR$/UI/src/main/resources/FormInput.fxml" />
+        <option value="$PROJECT_DIR$/UI/src/main/java/StartApp/MainVisual.java" />
+        <option value="$PROJECT_DIR$/Dao/src/main/java/DaoClass/UserDao.java" />
+        <option value="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerFormUser.java" />
+        <option value="$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerLogin.java" />
+        <option value="$PROJECT_DIR$/Dao/src/main/java/Compound_DB_and_pojo/Compound.java" />
+        <option value="$PROJECT_DIR$/Alret/src/main/java/Thread/NotificationThread.java" />
+        <option value="$PROJECT_DIR$/Alret/src/main/java/Thread/TestFX.java" />
+        <option value="$PROJECT_DIR$/Alret/src/main/java/Thread/MonitoringThread.java" />
       </list>
     </option>
   </component>
@@ -242,6 +261,41 @@
             <path>
               <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
+              <item name="Alret" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
+              <item name="Alret" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
+              <item name="Alret" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
+              <item name="Alret" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
+              <item name="Alret" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Thread" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
@@ -285,48 +339,30 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="DaoClass" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
-              <item name="Dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="DataBase" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
-              <item name="Dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="InterfaceDao" type="462c0819:PsiDirectoryNode" />
+              <item name="UI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
-              <item name="Pojo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
-              <item name="Pojo" type="462c0819:PsiDirectoryNode" />
+              <item name="UI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
-              <item name="Pojo" type="462c0819:PsiDirectoryNode" />
+              <item name="UI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
-              <item name="Pojo" type="462c0819:PsiDirectoryNode" />
+              <item name="UI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -334,11 +370,28 @@
             <path>
               <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
-              <item name="Pojo" type="462c0819:PsiDirectoryNode" />
+              <item name="UI" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="PojoClass" type="462c0819:PsiDirectoryNode" />
+              <item name="ControllerClasses" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
+              <item name="UI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="StartApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaskManagerNew" type="462c0819:PsiDirectoryNode" />
+              <item name="UI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TaskManagerNew" type="b2602c69:ProjectViewProjectNode" />
@@ -356,12 +409,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="F:/Program unstal/SDKAndriod" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551539426950" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551610966203" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
@@ -459,7 +512,7 @@
       <workItem from="1551108430133" duration="3284000" />
       <workItem from="1551119455734" duration="2511000" />
       <workItem from="1551166484249" duration="395000" />
-      <workItem from="1551532864589" duration="5652000" />
+      <workItem from="1551532864589" duration="19427000" />
     </task>
     <task id="LOCAL-00001" summary="AllFile">
       <created>1550991640876</created>
@@ -503,11 +556,18 @@
       <option name="project" value="LOCAL" />
       <updated>1551536551872</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Готовое Dao">
+      <created>1551539468370</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1551539468370</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106999000" />
+    <option name="totallyTimeSpent" value="120774000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -522,7 +582,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27760968" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.27760968" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -564,161 +624,26 @@
     <MESSAGE value="Check" />
     <MESSAGE value="Check1111" />
     <MESSAGE value="StartDao" />
-    <option name="LAST_COMMIT_MESSAGE" value="StartDao" />
+    <MESSAGE value="Готовое Dao" />
+    <option name="LAST_COMMIT_MESSAGE" value="Готовое Dao" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Dao/src/main/java/DaoClass/UserDao.java</url>
+          <line>75</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="913" column="16" selection-start-line="913" selection-start-column="16" selection-end-line="913" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.16.18/lombok-1.16.18.jar!/lombok/Getter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.16.18/lombok-1.16.18.pom">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Pojo/src/main/java/PojoClass.java" />
-    <entry file="file://$PROJECT_DIR$/Alret/src/main/java/Thread/TestFX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alret/src/main/java/Thread/NotificationThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alret/src/main/java/Thread/MonitoringThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="48" column="58" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Alret/src/main/java/Signal/Signal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/main/java/ControllerClass.java" />
-    <entry file="file://$PROJECT_DIR$/UI/src/main/resources/FormInput.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dao/src/test/java/TestClassDataBase/TestDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/main/java/OldVisual/Visualization.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/main/resources/FormAddTask.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TaskLog/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/main/java/StartApp/MainVisual.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerLogin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="65" column="50" selection-start-line="65" selection-start-column="50" selection-end-line="65" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/main/resources/FormMenuUser.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerFormUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="126" column="60" selection-start-line="126" selection-start-column="60" selection-end-line="126" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerAddTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="107" column="20" lean-forward="true" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TaskLog/src/main/java/TaskLog/TaskLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="69" column="90" lean-forward="true" selection-start-line="69" selection-start-column="90" selection-end-line="69" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://9ec50097-f814-4502-b5c1-8a8301367bb3/schema/main/table/task">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://9ec50097-f814-4502-b5c1-8a8301367bb3/schema/main/table/task">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://9ec50097-f814-4502-b5c1-8a8301367bb3/schema/main/table/task">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -807,16 +732,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dao/src/main/java/Compound_DB_and_pojo/Compound.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -827,30 +742,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Pojo/src/main/java/PojoClass/User.java">
+    <entry file="file://$USER_HOME$/Desktop/Машины/main/java/DAO/DoctorDAO.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Машины/main/java/DAO/impl/DoctorDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        <state relative-caret-position="-51">
+          <caret line="71" column="9" lean-forward="true" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/xerial/sqlite-jdbc/3.25.2/sqlite-jdbc-3.25.2.jar!/org/sqlite/jdbc3/JDBC3Connection.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dao/src/test/java/TestClassDataBase/TestDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TaskLog/TaskLog.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TaskLog/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TaskLog/src/main/java/TaskLog/TaskLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TaskLog/src/main/java/TaskLog/TaskLogOld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="69" column="90" selection-start-line="69" selection-start-column="90" selection-end-line="69" selection-end-column="90" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dao/src/main/java/DaoClass/DaoDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        <state relative-caret-position="248">
+          <caret line="16" column="46" lean-forward="true" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Pojo/pom.xml">
+    <entry file="file://$PROJECT_DIR$/Dao/src/main/java/DaoClass/TaskDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="119">
+          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alret/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -861,17 +834,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Alret/pom.xml">
+    <entry file="file://$PROJECT_DIR$/Pojo/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/UI/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
+        <state relative-caret-position="262">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dao/src/main/java/InterfaceDao/TaskInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dao/src/main/java/DataBase/DataBaseOLD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="374" lean-forward="true" selection-start-line="374" selection-end-line="374" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9ec50097-f814-4502-b5c1-8a8301367bb3/schema/main/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/main/java/OldVisual/Visualization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/main/resources/FormInput.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/main/resources/FormAddTask.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/main/resources/FormMenuUser.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="1773" selection-start-line="1773" selection-end-line="1773" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/main/java/StartApp/MainVisual.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="13" column="47" lean-forward="true" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerAddTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2180">
+          <caret line="150" column="37" selection-start-line="150" selection-start-column="37" selection-end-line="150" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -882,61 +925,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dao/src/main/java/DaoClass/UserDao.java">
+    <entry file="file://$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerFormUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="99" selection-end-column="5" />
+        <state relative-caret-position="199">
+          <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dao/src/main/java/DaoClass/TaskDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="178" column="1" lean-forward="true" selection-start-line="178" selection-start-column="1" selection-end-line="178" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7427#7433#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dao/src/main/java/InterfaceDao/TaskInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dao/src/main/java/InterfaceDao/UserInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1330#1331#0" expanded="true" />
+            <element signature="e#1362#1363#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Pojo/src/main/java/PojoClass/Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        <state relative-caret-position="187">
+          <caret line="46" column="15" selection-start-line="46" selection-start-column="15" selection-end-line="46" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1114#1115#0" expanded="true" />
+            <element signature="e#1143#1144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pojo/src/main/java/PojoClass/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dao/src/main/java/DaoClass/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="74" column="16" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#232#233#0" expanded="true" />
+            <element signature="e#266#267#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dao/src/main/java/InterfaceDao/UserInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dao/src/main/java/DataBase/DataBaseOLD.java">
+    <entry file="file://$PROJECT_DIR$/Dao/src/main/java/Compound_DB_and_pojo/Compound.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="391" column="35" selection-start-line="391" selection-start-column="35" selection-end-line="391" selection-end-column="35" />
+        <state relative-caret-position="238">
+          <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1803#1809#0" expanded="true" />
+            <element signature="e#3282#3283#0" expanded="true" />
+            <element signature="e#3318#3319#0" expanded="true" />
+            <element signature="e#3383#3384#0" expanded="true" />
+            <element signature="e#3433#3434#0" expanded="true" />
+            <element signature="e#3480#3481#0" expanded="true" />
+            <element signature="e#3516#3517#0" expanded="true" />
+            <element signature="e#3581#3582#0" expanded="true" />
+            <element signature="e#3631#3632#0" expanded="true" />
+            <element signature="e#3662#3663#0" expanded="true" />
+            <element signature="e#3690#3691#0" expanded="true" />
+            <element signature="e#3731#3732#0" expanded="true" />
+            <element signature="e#3765#3766#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/src/main/java/ControllerClasses/ControllerLogin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="45" column="46" lean-forward="true" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alret/src/main/java/Signal/Signal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alret/src/main/java/Thread/TestFX.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-404">
+          <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alret/src/main/java/Thread/NotificationThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Alret/src/main/java/Thread/MonitoringThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -995,7 +1108,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>TaskManagerNew</last-edited>
+          <last-edited>Alret</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

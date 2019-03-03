@@ -12,7 +12,7 @@ public class MainVisual extends Application {
     public void start(Stage primaryStage) throws Exception{
         Pane root = FXMLLoader.load(MainVisual.class.getResource("/FormInput.fxml"));
         primaryStage.setScene(new Scene(root));
-        primaryStage.setTitle("PojoClass.Task Manager");
+        primaryStage.setTitle("Task Manager");
         primaryStage.show();
     }
 

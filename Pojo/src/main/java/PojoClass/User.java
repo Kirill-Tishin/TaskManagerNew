@@ -1,7 +1,8 @@
 package PojoClass;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.List;
+
+import java.util.ArrayList;
 
 //TODO: use lombok instead of boilerplate code (Не работатет)
 
@@ -10,7 +11,7 @@ import java.util.List;
 public class User {
     private int idUser;
     private String userName;
-  //  private List<Task> taskList;
+    private ArrayList<Task> taskList;
 
     public User(int idUser, String userName) {
         this.idUser = idUser;
@@ -33,11 +34,11 @@ public class User {
         this.userName = userName;
     }
 
-  /*  public void setTaskList(List<Task> taskList) {
+    public void setTaskList(ArrayList<Task> taskList) {
         this.taskList = taskList;
     }
 
-    public List<Task> getTaskList() {
+    public ArrayList<Task> getTaskList() {
         return taskList;
-    }*/
+    }
 }

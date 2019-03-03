@@ -1,6 +1,8 @@
 package ControllerClasses;
 
-import DataBase.DataBaseOLD;
+import Compound_DB_and_pojo.Compound;
+import InterfaceDao.TaskInterface;
+import InterfaceDao.UserInterface;
 import PojoClass.Task;
 import PojoClass.User;
 import javafx.collections.FXCollections;
@@ -28,21 +30,17 @@ import java.sql.Time;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class ControllerFormUser implements Initializable {
-    private DataBaseOLD dataBaseOLD;
+    private Compound compound;
+    private UserInterface userInterface;
+    private TaskInterface taskInterface;
     private User user;
 
-    public DataBaseOLD getDataBaseOLD() {
-        return dataBaseOLD;
-    }
     public User getUser(){ return user; }
-
-    public void setDataBaseOLD(DataBaseOLD dataBaseOLD) {
-        this.dataBaseOLD = dataBaseOLD;
-    }
 
     public void setUser(User user) {
         this.user = user;
@@ -90,7 +88,6 @@ public class ControllerFormUser implements Initializable {
         colDesTask.setCellValueFactory(new PropertyValueFactory<Task,String>("descriptionTask"));
         colDateTask.setCellValueFactory(new PropertyValueFactory<Task, Date>("dateTask"));
         colTimeTask.setCellValueFactory(new PropertyValueFactory<Task, Time>("timeTask"));
-      //  colIdUser.setCellValueFactory(new PropertyValueFactory<PojoClass.Task,Integer>("idUser"));
         tableViewTask.setItems(tasksData);
     }
 
@@ -98,7 +95,9 @@ public class ControllerFormUser implements Initializable {
     private void setTaskData() throws SQLException {
         tasksData=null;
         tasksData = FXCollections.observableArrayList();
-        List<Task> tasksList = dataBaseOLD.getTasksUser(user.getIdUser(), dataBaseOLD);
+        List<Task> tasksList = user.getTaskList();
+
+      //  List<Task> tasksList = dataBaseOLD.getTasksUser(user.getIdUser(), dataBaseOLD);
         for(int i=0;i<tasksList.size();i++){
             tasksData.add(tasksList.get(i));
         }
@@ -107,7 +106,12 @@ public class ControllerFormUser implements Initializable {
     public void setButtonDellTask() throws SQLException, ClassNotFoundException {
         if(!tableViewTask.getSelectionModel().isEmpty()){
             Task task = tableViewTask.getSelectionModel().getSelectedItem();
-            dataBaseOLD.deleteTask(task.getIdTask());
+            ArrayList arrayListNew = user.getTaskList();
+            arrayListNew.remove(task);
+            user.setTaskList(arrayListNew); //Удилили задачу из листа пользователя
+            taskInterface.deleteTask(task); //Удилили задачу из бд
+
+       //     dataBaseOLD.deleteTask(task.getIdTask());
             setTableViewTask();
         }else{
             addAlter("Для удаления необходимо выбрать задачу, которую вы хотите удалить","Ошибка");
@@ -118,7 +122,7 @@ public class ControllerFormUser implements Initializable {
         Stage primaryStage = new Stage();
         primaryStage.initModality(Modality.APPLICATION_MODAL); //Чтобы прошлая форма была не активна
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FormAddTask.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FormAddTask.fxml"));
         Pane rootFormUser = fxmlLoader.load();
 
         //Ограничение
@@ -146,14 +150,14 @@ public class ControllerFormUser implements Initializable {
         controllerAddTask.datePic.setConverter(converter);
 
         controllerAddTask.datePic.setValue(LocalDate.now()); //Установка нынешней даты
-
         controllerAddTask.textFieldMinuteTask.setText("00");
         controllerAddTask.textFieldHourTask.setText("00");
-
-        controllerAddTask.setDataBaseOLD(dataBaseOLD); //Передача параметров
+        controllerAddTask.setCompound(compound); //Передача параметров
+        controllerAddTask.setTaskInterface(taskInterface);
+        controllerAddTask.setUserInterface(userInterface);
         controllerAddTask.setUser(user);
 
-        primaryStage.setTitle("PojoClass.Task Manager");
+        primaryStage.setTitle("Task Manager");
         primaryStage.setScene(new Scene(rootFormUser));
         primaryStage.setResizable(false);
         primaryStage.show();
@@ -165,22 +169,18 @@ public class ControllerFormUser implements Initializable {
             Stage primaryStage = new Stage();
             primaryStage.initModality(Modality.APPLICATION_MODAL); //Чтобы прошлая форма была не активна
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FormAddTask.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FormAddTask.fxml"));
             Pane rootFormUser = fxmlLoader.load();
 
             ControllerAddTask controllerAddTask = fxmlLoader.getController();
 
-            controllerAddTask.setDataBaseOLD(dataBaseOLD); //Передача параметров
+            controllerAddTask.setCompound(compound); //Передача параметров
+            controllerAddTask.setTaskInterface(taskInterface);
+            controllerAddTask.setUserInterface(userInterface);
             controllerAddTask.setUser(user);
             controllerAddTask.setTask(task);
-
             controllerAddTask.textFieldNameTask.setText(task.getNameTask());
             controllerAddTask.textFieldDescriptionTask.setText(task.getDescriptionTask());
-
-            //TODO: replace it with date picker******************************************
-          //  controllerAddTask.textFieldMinuteTask.setText(String.valueOf(task.getTimeTask().getMinutes()));
-          //  controllerAddTask.textFieldHourTask.setText(String.valueOf(task.getTimeTask().getHours()));
-
             controllerAddTask.textFieldMinuteTask.setText("00");
             controllerAddTask.textFieldHourTask.setText("00");
 
@@ -191,12 +191,36 @@ public class ControllerFormUser implements Initializable {
 
             controllerAddTask.buttonAdd.setText("Изменить");
 
-            primaryStage.setTitle("PojoClass.Task Manager");
+            primaryStage.setTitle("Task Manager");
             primaryStage.setScene(new Scene(rootFormUser));
             primaryStage.setResizable(false);
             primaryStage.show();
         }else{
             addAlter("Для редактирование необходимо выбрать задачу, которую вы хотите отредактировать","Ошибка");
         }
+    }
+
+    public Compound getCompound() {
+        return compound;
+    }
+
+    public void setCompound(Compound compound) {
+        this.compound = compound;
+    }
+
+    public UserInterface getUserInterface() {
+        return userInterface;
+    }
+
+    public void setUserInterface(UserInterface userInterface) {
+        this.userInterface = userInterface;
+    }
+
+    public TaskInterface getTaskInterface() {
+        return taskInterface;
+    }
+
+    public void setTaskInterface(TaskInterface taskInterface) {
+        this.taskInterface = taskInterface;
     }
 }

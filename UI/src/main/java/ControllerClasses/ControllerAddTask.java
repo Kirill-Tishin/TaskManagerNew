@@ -1,6 +1,8 @@
 package ControllerClasses;
 
-import DataBase.DataBaseOLD;
+import Compound_DB_and_pojo.Compound;
+import InterfaceDao.TaskInterface;
+import InterfaceDao.UserInterface;
 import PojoClass.Task;
 import PojoClass.User;
 import javafx.fxml.FXML;
@@ -16,18 +18,17 @@ import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ControllerAddTask implements Initializable {
-    private DataBaseOLD dataBaseOLD;
+    private Compound compound;
+    private UserInterface userInterface;
+    private TaskInterface taskInterface;
     private User user;
     private Task task;
-
-    public DataBaseOLD getDataBaseOLD() {
-        return dataBaseOLD;
-    }
 
     public User getUser() {
         return user;
@@ -39,10 +40,6 @@ public class ControllerAddTask implements Initializable {
 
     public void setTask(Task task) {
         this.task = task;
-    }
-
-    public void setDataBaseOLD(DataBaseOLD dataBaseOLD) {
-        this.dataBaseOLD = dataBaseOLD;
     }
 
     public void setUser(User user) {
@@ -128,14 +125,57 @@ public class ControllerAddTask implements Initializable {
         //TODO: create interface Validator with "validate" method, and use its implementations below
         if (dateNow.getTime() <= dateTask.getTime()) {
             if (buttonAdd.getText().equals("Добавить")) {
-                dataBaseOLD.addTask(user.getIdUser(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
+                ArrayList arrayListNew = user.getTaskList();
+                //Обновили в бд
+                taskInterface.addTask(user.getIdUser(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));//Обновили у пользователя
+                arrayListNew.add(taskInterface.getTask(compound.getMaxIdTask())); //Последняя добавленная задача
+                //Обновили у пользователя
+                user.setTaskList(arrayListNew);
+
+              //  dataBaseOLD.addTask(user.getIdUser(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
+
                 addAlter("Задача добавлена", "Информация");
             } else {
-                dataBaseOLD.updateTask(user.getIdUser(), task.getIdTask(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
+
+                ArrayList arrayListNew = user.getTaskList();
+                //Обновили в бд
+                taskInterface.updateTask(user.getIdUser(), task.getIdTask(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
+                //Обновили у пользователя
+                arrayListNew.remove(task);
+                Task taskNew = new Task(task.getIdTask(), user.getIdUser(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
+                arrayListNew.add(taskNew);
+                user.setTaskList(arrayListNew);
+
+              //  dataBaseOLD.updateTask(user.getIdUser(), task.getIdTask(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
+
                 addAlter("Задача изменена", "Информация");
             }
         } else {
             addAlter("Дата уже устарела", "Ошибка");
         }
+    }
+
+    public Compound getCompound() {
+        return compound;
+    }
+
+    public void setCompound(Compound compound) {
+        this.compound = compound;
+    }
+
+    public UserInterface getUserInterface() {
+        return userInterface;
+    }
+
+    public void setUserInterface(UserInterface userInterface) {
+        this.userInterface = userInterface;
+    }
+
+    public TaskInterface getTaskInterface() {
+        return taskInterface;
+    }
+
+    public void setTaskInterface(TaskInterface taskInterface) {
+        this.taskInterface = taskInterface;
     }
 }

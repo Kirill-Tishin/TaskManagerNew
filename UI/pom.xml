@@ -19,6 +19,12 @@
         </dependency>
         <dependency>
             <groupId>Curator</groupId>
+            <artifactId>Pojo</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>Curator</groupId>
             <artifactId>Alret</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>

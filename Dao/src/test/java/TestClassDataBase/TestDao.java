@@ -1,10 +1,10 @@
 package TestClassDataBase;
 
+import DaoClass.DaoDB;
+import DaoClass.UserDao;
+
 import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.util.Calendar;
-import java.util.Date;
 
 public class TestDao {
     public static void main(String [] args) throws SQLException, IOException {
@@ -24,5 +24,8 @@ public class TestDao {
 
         User user = new User();*/
 
+        DaoDB daoDB = new DaoDB();
+        UserDao userDao = new UserDao(daoDB);
+        userDao.addUser("qw");
     }
 }

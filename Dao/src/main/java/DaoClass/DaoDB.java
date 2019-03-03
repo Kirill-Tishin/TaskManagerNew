@@ -15,7 +15,7 @@ public class DaoDB {
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection("JDBC:sqlite:F:\\SQlite\\Windows\\TaskManager.db");
-            System.out.println("Connection DataBaseOLD.DataBaseOLD");
+            System.out.println("Connection DB");
         } catch (Exception e) {
             System.out.println(e);
         }

@@ -1,6 +1,6 @@
 package Signal;
 
-import DataBase.DataBaseOLD;
+import Compound_DB_and_pojo.Compound;
 import PojoClass.User;
 import Thread.MonitoringThread;
 
@@ -8,23 +8,17 @@ import java.sql.SQLException;
 
 public class Signal {
     private User user;
-    private DataBaseOLD dataBaseOLD;
-    //TODO: why variable is static? ***********************************************
-    //private static MonitoringThread monitoringThread;
+    private Compound compound;
     private MonitoringThread monitoringThread;
 
-    public Signal(DataBaseOLD dataBaseOLD, User user) {
-        this.dataBaseOLD = dataBaseOLD;
+    public Signal(Compound compound, User user) {
+        this.compound = compound;
         this.user = user;
-
-        //TODO: use separate method for this ***********************************
-      /*  monitoringThread = new MonitoringThread(dataBaseOLD,user,0);
-        monitoringThread.start();*/
     }
 
     //Запуск потока с уведомлениями
     public void startSignal() throws SQLException {
-        monitoringThread = new MonitoringThread(dataBaseOLD, user);
+        monitoringThread = new MonitoringThread(compound, user);
         monitoringThread.start();
     }
 

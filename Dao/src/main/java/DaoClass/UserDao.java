@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class UserDao implements UserInterface {
     private DaoDB daoDB;
-    private Connection connection;
 
     public UserDao(DaoDB daoDB) {
         this.daoDB = daoDB;
@@ -16,6 +15,7 @@ public class UserDao implements UserInterface {
 
     @Override
     public void addUser(User user) throws SQLException {
+
         Connection connection = daoDB.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT into User(id_user,name_user)" + "VALUES (?,?)");
         preparedStatement.setInt(1, user.getIdUser());
@@ -27,7 +27,7 @@ public class UserDao implements UserInterface {
     @Override
     public void addUser(String nameUser) throws SQLException {
         Connection connection = daoDB.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT into User(id_user,name_user)" + "VALUES (?)");
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT into User(name_user)" + "VALUES (?)");
         preparedStatement.setString(1, nameUser);
         preparedStatement.execute();
         System.out.println("User add");
@@ -79,7 +79,7 @@ public class UserDao implements UserInterface {
         ResultSet resultSet = preparedStatement.executeQuery();
         User user=null;
         while(resultSet.next()){
-            String nameUser = resultSet.getString(2);
+            String nameUser = resultSet.getString(1);
             user = new User(idUser,nameUser);
         }
         return user;
