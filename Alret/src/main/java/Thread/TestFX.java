@@ -52,11 +52,6 @@ public class TestFX implements Initializable {
         Optional<ButtonType> option = alert.showAndWait();
 
         if (option.get() == postpone) {
-            //Добавление 5-ти минтут к времени задачи задаче
-          /*  Calendar calendar = Calendar.getInstance();
-            calendar.setTime(task.getTimeTask());
-            calendar.add(Calendar.MINUTE, 5);*/
-
           //Добавление 5-ти минтут к нынешнему времени
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(calendar.getTime());
@@ -65,8 +60,7 @@ public class TestFX implements Initializable {
             ArrayList arrayListNew = user.getTaskList();
             //Обновили в бд
             taskInterface.updateTask(task.getIdUser(), task.getIdTask(), task.getNameTask(), task.getDescriptionTask(), calendar.getTime(), new Time(calendar.getTimeInMillis()));
-            //Обновили у пользователя
-            arrayListNew.remove(task);
+            arrayListNew.remove(task); //Обновили у пользователя
             Task taskNew = new Task(task.getIdTask(), task.getIdUser(), task.getNameTask(), task.getDescriptionTask(), calendar.getTime(), new Time(calendar.getTimeInMillis()));
             arrayListNew.add(taskNew);
             user.setTaskList(arrayListNew);

@@ -7,16 +7,18 @@ import PojoClass.User;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.*;
+
 public class MonitoringThread extends Thread {
     private List<Task> taskList; //Тут все задачи одного пользователя
     private Compound compound;
     private User user;
     private NotificationThread notificationThread;
-    private ArrayList<Task> tasksWorking = new ArrayList<Task>();
+    private ArrayList<Task> tasksWorking;
 
     public MonitoringThread(Compound compound, User user) throws SQLException {
         this.compound = compound;
         this.user = user;
+        tasksWorking = new ArrayList<Task>();
     }
 
     public void run() {
@@ -36,7 +38,6 @@ public class MonitoringThread extends Thread {
                 Date dateNow = calendar.getTime();
                 Time timeNow = new Time(dateNow.getTime());
 
-                //TODO: do not shot notification for same task twice until we got response from user ******************************************
                 if ((dateTask.getTime() <= dateNow.getTime()) && (timeTask.getTime() <= timeNow.getTime())) {
                     if(!tasksWorking.contains(task)){ //Проверка существрования элемента
                         tasksWorking.add(task);
@@ -44,7 +45,8 @@ public class MonitoringThread extends Thread {
                         notificationThread.start();
                     }else{
                         System.out.println("Task выведена");
-                        //Обновление ,если задача ужеудалена, чтобы не получилось, случайно, листа огромного размера из задач, которые уже удалены или отложены,
+                        //Обновление ,если задача уже удалена, чтобы не получилось, случайно, листа огромного
+                        // размера из задач, которые уже удалены или отложены,
                         // но в этом листе их старая версия уже осталась
                         ArrayList<Task> newTasks = new ArrayList<>();
                         for(int j=0;j<taskList.size();j++){

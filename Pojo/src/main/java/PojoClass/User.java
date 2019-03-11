@@ -4,8 +4,6 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 
-//TODO: use lombok instead of boilerplate code *******************************
-
 @Getter
 @Setter
 public class User {

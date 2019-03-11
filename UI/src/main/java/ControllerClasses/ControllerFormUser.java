@@ -7,6 +7,7 @@ import PojoClass.Task;
 import PojoClass.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,6 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.StringConverter;
 import javafx.util.converter.LocalDateStringConverter;
 
@@ -65,7 +67,6 @@ public class ControllerFormUser implements Initializable {
     public Button buttonAddTask;
     public Button buttonDellTask;
     public Button buttonChangeTask;
-    public Button buttonUpdate;
 
     @FXML
     private void addAlter(String strOutput, String identification){
@@ -74,10 +75,6 @@ public class ControllerFormUser implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(strOutput);
         alert.showAndWait();
-    }
-
-    public void setButtonUpdate() throws SQLException, ClassNotFoundException {
-        setTableViewTask();
     }
 
     //Отображение таблицы и её обновление
@@ -96,8 +93,6 @@ public class ControllerFormUser implements Initializable {
         tasksData=null;
         tasksData = FXCollections.observableArrayList();
         List<Task> tasksList = user.getTaskList();
-
-      //  List<Task> tasksList = dataBaseOLD.getTasksUser(user.getIdUser(), dataBaseOLD);
         for(int i=0;i<tasksList.size();i++){
             tasksData.add(tasksList.get(i));
         }
@@ -110,8 +105,6 @@ public class ControllerFormUser implements Initializable {
             arrayListNew.remove(task);
             user.setTaskList(arrayListNew); //Удилили задачу из листа пользователя
             taskInterface.deleteTask(task); //Удилили задачу из бд
-
-       //     dataBaseOLD.deleteTask(task.getIdTask());
             setTableViewTask();
         }else{
             addAlter("Для удаления необходимо выбрать задачу, которую вы хотите удалить","Ошибка");
@@ -161,6 +154,18 @@ public class ControllerFormUser implements Initializable {
         primaryStage.setScene(new Scene(rootFormUser));
         primaryStage.setResizable(false);
         primaryStage.show();
+
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            public void handle(WindowEvent we) {
+                try {
+                    setTableViewTask();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     public void setButtonChangeTask() throws IOException {
@@ -195,6 +200,18 @@ public class ControllerFormUser implements Initializable {
             primaryStage.setScene(new Scene(rootFormUser));
             primaryStage.setResizable(false);
             primaryStage.show();
+
+            primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                public void handle(WindowEvent we) {
+                    try {
+                        setTableViewTask();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }else{
             addAlter("Для редактирование необходимо выбрать задачу, которую вы хотите отредактировать","Ошибка");
         }

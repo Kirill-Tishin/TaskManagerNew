@@ -6,6 +6,7 @@ import PojoClass.User;
 import javafx.application.Platform;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class NotificationThread extends Thread {
     private TestFX testFX;
