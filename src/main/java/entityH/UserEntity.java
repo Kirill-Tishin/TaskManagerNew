@@ -1,7 +1,6 @@
 package entityH;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -9,10 +8,9 @@ import java.util.Objects;
 public class UserEntity {
     private Short idUser;
     private Object nameUser;
-    private Collection<TaskEntity> tasksByIdUser;
 
     @Id
-    @Column(name = "id_user", nullable = true)
+    @Column(name = "id_user")
     public Short getIdUser() {
         return idUser;
     }
@@ -22,7 +20,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "name_user", nullable = false, length = 50)
+    @Column(name = "name_user")
     public Object getNameUser() {
         return nameUser;
     }
@@ -43,14 +41,5 @@ public class UserEntity {
     @Override
     public int hashCode() {
         return Objects.hash(idUser, nameUser);
-    }
-
-    @OneToMany(mappedBy = "userByIdUser")
-    public Collection<TaskEntity> getTasksByIdUser() {
-        return tasksByIdUser;
-    }
-
-    public void setTasksByIdUser(Collection<TaskEntity> tasksByIdUser) {
-        this.tasksByIdUser = tasksByIdUser;
     }
 }

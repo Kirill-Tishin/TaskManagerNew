@@ -12,10 +12,9 @@ public class TaskEntity {
     private Object dateTask;
     private Object timeTask;
     private short idUser;
-    private UserEntity userByIdUser;
 
     @Id
-    @Column(name = "id_task", nullable = true)
+    @Column(name = "id_task")
     public Short getIdTask() {
         return idTask;
     }
@@ -25,7 +24,7 @@ public class TaskEntity {
     }
 
     @Basic
-    @Column(name = "name_task", nullable = false, length = 50)
+    @Column(name = "name_task")
     public Object getNameTask() {
         return nameTask;
     }
@@ -35,7 +34,7 @@ public class TaskEntity {
     }
 
     @Basic
-    @Column(name = "DescriptionTask", nullable = true, length = 150)
+    @Column(name = "DescriptionTask")
     public Object getDescriptionTask() {
         return descriptionTask;
     }
@@ -45,7 +44,7 @@ public class TaskEntity {
     }
 
     @Basic
-    @Column(name = "dateTask", nullable = true)
+    @Column(name = "dateTask")
     public Object getDateTask() {
         return dateTask;
     }
@@ -55,7 +54,7 @@ public class TaskEntity {
     }
 
     @Basic
-    @Column(name = "timeTask", nullable = true)
+    @Column(name = "timeTask")
     public Object getTimeTask() {
         return timeTask;
     }
@@ -65,7 +64,7 @@ public class TaskEntity {
     }
 
     @Basic
-    @Column(name = "id_user", nullable = false)
+    @Column(name = "id_user")
     public short getIdUser() {
         return idUser;
     }
@@ -90,15 +89,5 @@ public class TaskEntity {
     @Override
     public int hashCode() {
         return Objects.hash(idTask, nameTask, descriptionTask, dateTask, timeTask, idUser);
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "id_user", referencedColumnName = "id_user", nullable = false)
-    public UserEntity getUserByIdUser() {
-        return userByIdUser;
-    }
-
-    public void setUserByIdUser(UserEntity userByIdUser) {
-        this.userByIdUser = userByIdUser;
     }
 }
