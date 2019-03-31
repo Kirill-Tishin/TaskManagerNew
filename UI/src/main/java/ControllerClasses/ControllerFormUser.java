@@ -26,13 +26,13 @@ import javafx.util.converter.LocalDateStringConverter;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -61,9 +61,8 @@ public class ControllerFormUser implements Initializable {
     public TableColumn<Task,Integer> colIdTask;
     public TableColumn<Task,String> colNameTask;
     public TableColumn<Task,String> colDesTask;
-    public TableColumn<Task, java.sql.Date> colDateTask;
+    public TableColumn<Task, Date> colDateTask;
     public TableColumn<Task, java.sql.Time> colTimeTask;
-  //  public TableColumn<PojoClass.Task,Integer> colIdUser;
     public Button buttonAddTask;
     public Button buttonDellTask;
     public Button buttonChangeTask;
@@ -87,6 +86,10 @@ public class ControllerFormUser implements Initializable {
         colTimeTask.setCellValueFactory(new PropertyValueFactory<Task, Time>("timeTask"));
         tableViewTask.setItems(tasksData);
     }
+
+    /*DateFormat formatDate = new SimpleDateFormat("d.M.yyyy");
+            String dateStr  = formatDate.format(calendar.getTime());
+            Date date = formatDate.parse(dateStr);*/
 
     //Запись данных о пользователях
     private void setTaskData() throws SQLException {

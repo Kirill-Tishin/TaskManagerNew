@@ -12,10 +12,10 @@ import javafx.scene.control.ButtonType;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class TestFX implements Initializable {
     private User user;
@@ -37,7 +37,7 @@ public class TestFX implements Initializable {
     private Alert alert;
 
     @FXML
-    void addAlter(String strOutput, String identification) throws SQLException {
+    void addAlter(String strOutput, String identification) throws SQLException, ParseException {
         alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(identification);
         alert.setHeaderText(null);
@@ -52,10 +52,13 @@ public class TestFX implements Initializable {
         Optional<ButtonType> option = alert.showAndWait();
 
         if (option.get() == postpone) {
-          //Добавление 5-ти минтут к нынешнему времени
+         // Добавление 5-ти минтут к нынешнему времени
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(calendar.getTime());
             calendar.add(Calendar.MINUTE, 5);
+
+          /*  Date dateNow = new Date();
+            Date date = new Date(dateNow.getTime()+5000L*60);*/
 
             ArrayList arrayListNew = user.getTaskList();
             //Обновили в бд

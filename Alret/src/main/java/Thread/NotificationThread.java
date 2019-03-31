@@ -6,16 +6,15 @@ import PojoClass.User;
 import javafx.application.Platform;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 public class NotificationThread extends Thread {
     private TestFX testFX;
     private Task task;
-    private User user;
 
     public NotificationThread(User user, Task task, Compound compound) {
         this.task = task;
-        this.user = user;
         testFX = new TestFX(user, task, compound);
     }
 
@@ -25,7 +24,7 @@ public class NotificationThread extends Thread {
             public void run() {
                 try {
                     testFX.addAlter("Пришло время выполнения задачи " + task.getIdTask() + " " + task.getNameTask() + "\n Date PojoClass.Task " + task.getDateTask() + " Time PojoClass.Task " + task.getTimeTask(), "Задача " + task.getNameTask());
-                } catch (SQLException e) {
+                } catch (SQLException | ParseException e) {
                     e.printStackTrace();
                 }
             }

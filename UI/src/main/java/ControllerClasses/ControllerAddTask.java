@@ -106,12 +106,11 @@ public class ControllerAddTask implements Initializable {
 
         Date dateTask = calendar.getTime();
 
-        //TODO: create interface Validator with "validate" method, and use its implementations below ********************************
         if (validator.checkOldTime(dateNow,dateTask)) {
             if (buttonAdd.getText().equals("Добавить")) {
                 ArrayList arrayListNew = user.getTaskList();
                 //Обновили в бд
-                taskInterface.addTask(user.getIdUser(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));//Обновили у пользователя
+                taskInterface.addTask(user.getIdUser(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
                 arrayListNew.add(taskInterface.getTask(compound.getMaxIdTask())); //Последняя добавленная задача
                 //Обновили у пользователя
                 user.setTaskList(arrayListNew);

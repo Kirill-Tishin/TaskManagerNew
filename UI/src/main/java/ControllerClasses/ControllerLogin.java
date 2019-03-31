@@ -69,8 +69,8 @@ public class ControllerLogin implements Initializable {
                 primaryStage.show();
 
                 primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                    public void handle(WindowEvent we) {
-                        signal.stopSignal(); //Остановка потока уведомлений, когда закрылась форма с пользователем, т.е. пользователь вышел из своего аккаунта
+                        public void handle(WindowEvent we) {
+                            signal.stopSignal(); //Остановка потока уведомлений, когда закрылась форма с пользователем, т.е. пользователь вышел из своего аккаунта
                     }
                 });
 

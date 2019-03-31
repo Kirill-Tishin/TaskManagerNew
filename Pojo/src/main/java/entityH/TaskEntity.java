@@ -1,75 +1,81 @@
 package entityH;
 
+import org.hibernate.annotations.JoinColumnOrFormula;
+
 import javax.persistence.*;
+import java.sql.Time;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "Task", schema = "main", catalog = "")
 public class TaskEntity {
-    private Short idTask;
-    private Object nameTask;
-    private Object descriptionTask;
-    private Object dateTask;
-    private Object timeTask;
-    private short idUser;
+    private int idTask;
+    private String nameTask;
+    private String descriptionTask;
+    private Date dateTask;
+    private Time timeTask;
+    private int idUser;
+    private UserEntity userByIdUser;
 
     @Id
-    @Column(name = "id_task")
-    public Short getIdTask() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_task",nullable = false)
+    public int getIdTask() {
         return idTask;
     }
 
-    public void setIdTask(Short idTask) {
+    public void setIdTask(int idTask) {
         this.idTask = idTask;
     }
 
     @Basic
     @Column(name = "name_task")
-    public Object getNameTask() {
+    public String getNameTask() {
         return nameTask;
     }
 
-    public void setNameTask(Object nameTask) {
+    public void setNameTask(String nameTask) {
         this.nameTask = nameTask;
     }
 
     @Basic
     @Column(name = "DescriptionTask")
-    public Object getDescriptionTask() {
+    public String getDescriptionTask() {
         return descriptionTask;
     }
 
-    public void setDescriptionTask(Object descriptionTask) {
+    public void setDescriptionTask(String descriptionTask) {
         this.descriptionTask = descriptionTask;
     }
 
     @Basic
     @Column(name = "dateTask")
-    public Object getDateTask() {
+    public Date getDateTask() {
         return dateTask;
     }
 
-    public void setDateTask(Object dateTask) {
+    public void setDateTask(Date dateTask) {
         this.dateTask = dateTask;
     }
 
     @Basic
     @Column(name = "timeTask")
-    public Object getTimeTask() {
+    public Time getTimeTask() {
         return timeTask;
     }
 
-    public void setTimeTask(Object timeTask) {
+    public void setTimeTask(Time timeTask) {
         this.timeTask = timeTask;
     }
 
     @Basic
     @Column(name = "id_user")
-    public short getIdUser() {
+    public int getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(short idUser) {
+    public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
 
@@ -89,5 +95,15 @@ public class TaskEntity {
     @Override
     public int hashCode() {
         return Objects.hash(idTask, nameTask, descriptionTask, dateTask, timeTask, idUser);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "id_user",referencedColumnName ="id_user",nullable = false,insertable = false, updatable = false)
+    public UserEntity getUserByIdUser() {
+        return userByIdUser;
+    }
+
+    public void setUserByIdUser(UserEntity userByIdUser) {
+        this.userByIdUser = userByIdUser;
     }
 }

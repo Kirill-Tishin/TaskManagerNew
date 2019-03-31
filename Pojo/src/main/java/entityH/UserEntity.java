@@ -1,31 +1,35 @@
 package entityH;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
 @Table(name = "User", schema = "main", catalog = "")
 public class UserEntity {
-    private Short idUser;
-    private Object nameUser;
+    private int idUser;
+    private String nameUser;
+    private Collection<TaskEntity> taskByIdUser;
 
     @Id
-    @Column(name = "id_user")
-    public Short getIdUser() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_user",nullable = false)
+    public int getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(Short idUser) {
+    public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
 
     @Basic
     @Column(name = "name_user")
-    public Object getNameUser() {
+    public String getNameUser() {
         return nameUser;
     }
 
-    public void setNameUser(Object nameUser) {
+    public void setNameUser(String nameUser) {
         this.nameUser = nameUser;
     }
 
@@ -41,5 +45,14 @@ public class UserEntity {
     @Override
     public int hashCode() {
         return Objects.hash(idUser, nameUser);
+    }
+
+    @OneToMany(mappedBy = "userByIdUser")
+    public Collection<TaskEntity> getTaskByIdUser() {
+        return taskByIdUser;
+    }
+
+    public void setTaskByIdUser(Collection<TaskEntity> taskByIdUser) {
+        this.taskByIdUser = taskByIdUser;
     }
 }

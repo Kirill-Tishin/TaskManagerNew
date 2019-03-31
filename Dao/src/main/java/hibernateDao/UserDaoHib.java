@@ -1,5 +1,7 @@
 package hibernateDao;
 
+import entityH.TaskEntity;
+import entityH.UserEntity;
 import forWorkHibernate.HibernateSession;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
