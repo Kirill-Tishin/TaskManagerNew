@@ -1,11 +1,11 @@
 package ControllerClasses;
 
-import Compound.Compound;
-import InterfaceDao.TaskInterface;
-import InterfaceDao.UserInterface;
-import PojoClass.Task;
-import PojoClass.User;
+import Compound.CompoandForHib;
 import ValidatorClass.Validator;
+import entityH.TaskEntity;
+import entityH.UserEntity;
+import hibernateDao.TaskDaoHib;
+import hibernateDao.UserDaoHib;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -25,26 +25,26 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ControllerAddTask implements Initializable {
-    private Compound compound;
-    private UserInterface userInterface;
-    private TaskInterface taskInterface;
-    private User user;
-    private Task task;
+    private CompoandForHib compound;
+    private UserDaoHib userDaoHib;
+    private TaskDaoHib taskDaoHib;
+    private UserEntity user;
+    private TaskEntity task;
     private Validator validator = new Validator();
 
-    public User getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public Task getTask() {
+    public TaskEntity getTask() {
         return task;
     }
 
-    public void setTask(Task task) {
+    public void setTask(TaskEntity task) {
         this.task = task;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 
@@ -108,48 +108,65 @@ public class ControllerAddTask implements Initializable {
 
         if (validator.checkOldTime(dateNow,dateTask)) {
             if (buttonAdd.getText().equals("Добавить")) {
-                ArrayList arrayListNew = user.getTaskList();
+                ArrayList<TaskEntity> arrayListNew = new ArrayList<>(user.getTaskByIdUser());
                 //Обновили в бд
-                taskInterface.addTask(user.getIdUser(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
-                arrayListNew.add(taskInterface.getTask(compound.getMaxIdTask())); //Последняя добавленная задача
-                //Обновили у пользователя
-                user.setTaskList(arrayListNew);
+                TaskEntity taskEntityNew = new TaskEntity();
+                taskEntityNew.setNameTask(textFieldNameTask.getText());
+                taskEntityNew.setDescriptionTask(textFieldDescriptionTask.getText());
+                taskEntityNew.setDateTask(dateTask);
+                taskEntityNew.setTimeTask(new Time(dateTask.getTime()));
+                taskEntityNew.setUserByIdUser(task.getUserByIdUser());
+                taskEntityNew.setIdUser(task.getIdUser());
+
+                taskDaoHib.deleteTask(task);
+                taskDaoHib.addTask(taskEntityNew);
+
+                //Обновление у пользователя
+                arrayListNew.add(taskEntityNew);
+                user.setTaskByIdUser(arrayListNew);
                 addAlter("Задача добавлена", "Информация");
             } else {
-                ArrayList arrayListNew = user.getTaskList();
+                ArrayList arrayListNew = new ArrayList<>(user.getTaskByIdUser());
                 //Обновили в бд
-                taskInterface.updateTask(user.getIdUser(), task.getIdTask(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
+                TaskEntity taskEntityNew = new TaskEntity();
+                taskEntityNew.setIdTask(task.getIdTask());
+                taskEntityNew.setNameTask(textFieldNameTask.getText());
+                taskEntityNew.setDescriptionTask(textFieldDescriptionTask.getText());
+                taskEntityNew.setDateTask(dateTask);
+                taskEntityNew.setTimeTask(new Time(dateTask.getTime()));
+                taskEntityNew.setUserByIdUser(task.getUserByIdUser());
+                taskEntityNew.setIdUser(task.getIdUser());
+                taskDaoHib.updateTask(taskEntityNew); //Обновили в бд todo: Check work
                 //Обновили у пользователя
                 arrayListNew.remove(task);
-                Task taskNew = new Task(task.getIdTask(), user.getIdUser(), textFieldNameTask.getText(), textFieldDescriptionTask.getText(), dateTask, new Time(dateTask.getTime()));
-                arrayListNew.add(taskNew);
-                user.setTaskList(arrayListNew);
+                arrayListNew.add(taskEntityNew);
+                user.setTaskByIdUser(arrayListNew);
                 addAlter("Задача изменена", "Информация");
             }
         }
     }
 
-    public Compound getCompound() {
+    public CompoandForHib getCompound() {
         return compound;
     }
 
-    public void setCompound(Compound compound) {
+    public void setCompound(CompoandForHib compound) {
         this.compound = compound;
     }
 
-    public UserInterface getUserInterface() {
-        return userInterface;
+    public UserDaoHib getUserDaoHib() {
+        return userDaoHib;
     }
 
-    public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
+    public void setUserDaoHib(UserDaoHib userDaoHib) {
+        this.userDaoHib = userDaoHib;
     }
 
-    public TaskInterface getTaskInterface() {
-        return taskInterface;
+    public TaskDaoHib getTaskDaoHib() {
+        return taskDaoHib;
     }
 
-    public void setTaskInterface(TaskInterface taskInterface) {
-        this.taskInterface = taskInterface;
+    public void setTaskDaoHib(TaskDaoHib taskDaoHib) {
+        this.taskDaoHib = taskDaoHib;
     }
 }

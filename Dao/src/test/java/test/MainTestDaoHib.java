@@ -17,7 +17,7 @@ public class MainTestDaoHib {
         UserDaoHib userDaoHib = new UserDaoHib();
         TaskDaoHib taskDaoHib = new TaskDaoHib();
 
-        UserEntity userEntity = new UserEntity();
+       /* UserEntity userEntity = new UserEntity();
         userEntity.setNameUser("UserTestHib");
 
         userDaoHib.addUser(userEntity);
@@ -46,6 +46,6 @@ public class MainTestDaoHib {
         userEntity.setTaskByIdUser(taskEntities);
 
         taskDaoHib.addTask(taskEntity1);
-        taskDaoHib.addTask(taskEntity2);
+        taskDaoHib.addTask(taskEntity2);*/
     }
 }

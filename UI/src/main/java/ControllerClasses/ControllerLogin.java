@@ -1,7 +1,7 @@
 package ControllerClasses;
 
-import Compound.Compound;
-import PojoClass.User;
+import Compound.CompoandForHib;
+import entityH.UserEntity;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,8 +22,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ControllerLogin implements Initializable {
-    private Compound compound = new Compound();
-    private User user;
+    private CompoandForHib compoandForHib = new CompoandForHib();
+    private UserEntity userHib;
     private Signal signal;
 
     public ControllerLogin() throws SQLException {
@@ -41,10 +41,10 @@ public class ControllerLogin implements Initializable {
     @FXML
     public void setButtonOK() throws SQLException, IOException, ClassNotFoundException {
         if(!textFieldLogin.equals("")){
-            if(compound.getEqualsUserName(textFieldLogin.getText())){
-                user = compound.getUserInterface().getUser(compound.getIdUserInName(textFieldLogin.getText()));
-                compound.createListForUserId(user);
-                signal = new Signal(compound,user);
+            if(compoandForHib.getEqualsUserName(textFieldLogin.getText())){
+                userHib = compoandForHib.getUserDaoHib().getUser(compoandForHib.getIdUserInName(textFieldLogin.getText()));
+                //compound.createListForUserId(user);//Теперь делать не нужно, так как хибирнет присваивает юзеру его записи сам
+                signal = new Signal(compoandForHib,userHib);
                 signal.startSignal();//Запуск уведомлений сразу, как пользователь авторизовался
 
                 Stage primaryStage = new Stage();
@@ -55,10 +55,10 @@ public class ControllerLogin implements Initializable {
 
                 ControllerFormUser controllerFormUser = fxmlLoader.getController();
 
-                controllerFormUser.setCompound(compound); //Передача параметров
-                controllerFormUser.setUserInterface(compound.getUserInterface());
-                controllerFormUser.setTaskInterface(compound.getTaskInterface());
-                controllerFormUser.setUser(user);
+                controllerFormUser.setCompound(compoandForHib); //Передача параметров
+                controllerFormUser.setUserDaoHib(compoandForHib.getUserDaoHib());
+                controllerFormUser.setTaskDaoHib(compoandForHib.getTaskDaoHib());
+                controllerFormUser.setUser(userHib);
                 controllerFormUser.setTableViewTask();
 
                 textFieldLogin.setText("");

@@ -1,24 +1,24 @@
 package Signal;
 
-import Compound.Compound;
-import PojoClass.User;
+import Compound.CompoandForHib;
 import Thread.MonitoringThread;
+import entityH.UserEntity;
 
 import java.sql.SQLException;
 
 public class Signal {
-    private User user;
-    private Compound compound;
+    private UserEntity userEntity;
+    private CompoandForHib compoandForHib;
     private MonitoringThread monitoringThread;
 
-    public Signal(Compound compound, User user) {
-        this.compound = compound;
-        this.user = user;
+    public Signal(CompoandForHib compoandForHib, UserEntity userEntity) {
+        this.compoandForHib = compoandForHib;
+        this.userEntity = userEntity;
     }
 
     //Запуск потока с уведомлениями
     public void startSignal() throws SQLException {
-        monitoringThread = new MonitoringThread(compound, user);
+        monitoringThread = new MonitoringThread(compoandForHib, userEntity);
         monitoringThread.start();
     }
 

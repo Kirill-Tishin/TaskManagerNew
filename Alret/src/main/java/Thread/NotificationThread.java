@@ -1,19 +1,18 @@
 package Thread;
 
-import Compound.Compound;
-import PojoClass.Task;
-import PojoClass.User;
+import Compound.CompoandForHib;
+import entityH.TaskEntity;
+import entityH.UserEntity;
 import javafx.application.Platform;
 
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.ArrayList;
 
 public class NotificationThread extends Thread {
     private TestFX testFX;
-    private Task task;
+    private TaskEntity task;
 
-    public NotificationThread(User user, Task task, Compound compound) {
+    public NotificationThread(UserEntity user, TaskEntity task, CompoandForHib compound) {
         this.task = task;
         testFX = new TestFX(user, task, compound);
     }

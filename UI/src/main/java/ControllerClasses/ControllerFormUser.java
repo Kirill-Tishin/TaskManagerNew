@@ -1,10 +1,10 @@
 package ControllerClasses;
 
-import Compound.Compound;
-import InterfaceDao.TaskInterface;
-import InterfaceDao.UserInterface;
-import PojoClass.Task;
-import PojoClass.User;
+import Compound.CompoandForHib;
+import entityH.TaskEntity;
+import entityH.UserEntity;
+import hibernateDao.TaskDaoHib;
+import hibernateDao.UserDaoHib;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -37,14 +37,14 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ControllerFormUser implements Initializable {
-    private Compound compound;
-    private UserInterface userInterface;
-    private TaskInterface taskInterface;
-    private User user;
+    private CompoandForHib compound;
+    private UserDaoHib userDaoHib;
+    private TaskDaoHib taskDaoHib;
+    private UserEntity user;
 
-    public User getUser(){ return user; }
+    public UserEntity getUser(){ return user; }
 
-    public void setUser(User user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 
@@ -53,16 +53,16 @@ public class ControllerFormUser implements Initializable {
 
     }
 
-    private ObservableList<Task> tasksData;
+    private ObservableList<TaskEntity> tasksData;
 
     @FXML
     public Alert alert;
-    public javafx.scene.control.TableView<Task> tableViewTask;
-    public TableColumn<Task,Integer> colIdTask;
-    public TableColumn<Task,String> colNameTask;
-    public TableColumn<Task,String> colDesTask;
-    public TableColumn<Task, Date> colDateTask;
-    public TableColumn<Task, java.sql.Time> colTimeTask;
+    public javafx.scene.control.TableView<TaskEntity> tableViewTask;
+    public TableColumn<TaskEntity,Integer> colIdTask;
+    public TableColumn<TaskEntity,String> colNameTask;
+    public TableColumn<TaskEntity,String> colDesTask;
+    public TableColumn<TaskEntity, Date> colDateTask;
+    public TableColumn<TaskEntity, java.sql.Time> colTimeTask;
     public Button buttonAddTask;
     public Button buttonDellTask;
     public Button buttonChangeTask;
@@ -79,23 +79,19 @@ public class ControllerFormUser implements Initializable {
     //Отображение таблицы и её обновление
     public void setTableViewTask() throws SQLException, ClassNotFoundException {
         setTaskData();
-        colIdTask.setCellValueFactory(new PropertyValueFactory<Task,Integer>("idTask"));
-        colNameTask.setCellValueFactory(new PropertyValueFactory<Task,String>("nameTask"));
-        colDesTask.setCellValueFactory(new PropertyValueFactory<Task,String>("descriptionTask"));
-        colDateTask.setCellValueFactory(new PropertyValueFactory<Task, Date>("dateTask"));
-        colTimeTask.setCellValueFactory(new PropertyValueFactory<Task, Time>("timeTask"));
+        colIdTask.setCellValueFactory(new PropertyValueFactory<TaskEntity,Integer>("idTask"));
+        colNameTask.setCellValueFactory(new PropertyValueFactory<TaskEntity,String>("nameTask"));
+        colDesTask.setCellValueFactory(new PropertyValueFactory<TaskEntity,String>("descriptionTask"));
+        colDateTask.setCellValueFactory(new PropertyValueFactory<TaskEntity, Date>("dateTask"));
+        colTimeTask.setCellValueFactory(new PropertyValueFactory<TaskEntity, Time>("timeTask"));
         tableViewTask.setItems(tasksData);
     }
-
-    /*DateFormat formatDate = new SimpleDateFormat("d.M.yyyy");
-            String dateStr  = formatDate.format(calendar.getTime());
-            Date date = formatDate.parse(dateStr);*/
 
     //Запись данных о пользователях
     private void setTaskData() throws SQLException {
         tasksData=null;
         tasksData = FXCollections.observableArrayList();
-        List<Task> tasksList = user.getTaskList();
+        List<TaskEntity> tasksList = new ArrayList<>(user.getTaskByIdUser());
         for(int i=0;i<tasksList.size();i++){
             tasksData.add(tasksList.get(i));
         }
@@ -103,11 +99,11 @@ public class ControllerFormUser implements Initializable {
 
     public void setButtonDellTask() throws SQLException, ClassNotFoundException {
         if(!tableViewTask.getSelectionModel().isEmpty()){
-            Task task = tableViewTask.getSelectionModel().getSelectedItem();
-            ArrayList arrayListNew = user.getTaskList();
+            TaskEntity task = tableViewTask.getSelectionModel().getSelectedItem();
+            ArrayList arrayListNew = new ArrayList<>(user.getTaskByIdUser());
             arrayListNew.remove(task);
-            user.setTaskList(arrayListNew); //Удилили задачу из листа пользователя
-            taskInterface.deleteTask(task); //Удилили задачу из бд
+            user.setTaskByIdUser(arrayListNew); //Удилили задачу из листа пользователя
+            taskDaoHib.deleteTask(task); //Удилили задачу из бд
             setTableViewTask();
         }else{
             addAlter("Для удаления необходимо выбрать задачу, которую вы хотите удалить","Ошибка");
@@ -149,8 +145,8 @@ public class ControllerFormUser implements Initializable {
         controllerAddTask.textFieldMinuteTask.setText("00");
         controllerAddTask.textFieldHourTask.setText("00");
         controllerAddTask.setCompound(compound); //Передача параметров
-        controllerAddTask.setTaskInterface(taskInterface);
-        controllerAddTask.setUserInterface(userInterface);
+        controllerAddTask.setTaskDaoHib(taskDaoHib);
+        controllerAddTask.setUserDaoHib(userDaoHib);
         controllerAddTask.setUser(user);
 
         primaryStage.setTitle("Task Manager");
@@ -173,7 +169,7 @@ public class ControllerFormUser implements Initializable {
 
     public void setButtonChangeTask() throws IOException {
         if(!tableViewTask.getSelectionModel().isEmpty()){
-            Task task = tableViewTask.getSelectionModel().getSelectedItem();
+            TaskEntity task = tableViewTask.getSelectionModel().getSelectedItem();
             Stage primaryStage = new Stage();
             primaryStage.initModality(Modality.APPLICATION_MODAL); //Чтобы прошлая форма была не активна
 
@@ -183,8 +179,8 @@ public class ControllerFormUser implements Initializable {
             ControllerAddTask controllerAddTask = fxmlLoader.getController();
 
             controllerAddTask.setCompound(compound); //Передача параметров
-            controllerAddTask.setTaskInterface(taskInterface);
-            controllerAddTask.setUserInterface(userInterface);
+            controllerAddTask.setTaskDaoHib(taskDaoHib);
+            controllerAddTask.setUserDaoHib(userDaoHib);
             controllerAddTask.setUser(user);
             controllerAddTask.setTask(task);
             controllerAddTask.textFieldNameTask.setText(task.getNameTask());
@@ -220,27 +216,27 @@ public class ControllerFormUser implements Initializable {
         }
     }
 
-    public Compound getCompound() {
+    public CompoandForHib getCompound() {
         return compound;
     }
 
-    public void setCompound(Compound compound) {
+    public void setCompound(CompoandForHib compound) {
         this.compound = compound;
     }
 
-    public UserInterface getUserInterface() {
-        return userInterface;
+    public UserDaoHib getUserDaoHib() {
+        return userDaoHib;
     }
 
-    public void setUserInterface(UserInterface userInterface) {
-        this.userInterface = userInterface;
+    public void setUserDaoHib(UserDaoHib userDaoHib) {
+        this.userDaoHib = userDaoHib;
     }
 
-    public TaskInterface getTaskInterface() {
-        return taskInterface;
+    public TaskDaoHib getTaskDaoHib() {
+        return taskDaoHib;
     }
 
-    public void setTaskInterface(TaskInterface taskInterface) {
-        this.taskInterface = taskInterface;
+    public void setTaskDaoHib(TaskDaoHib taskDaoHib) {
+        this.taskDaoHib = taskDaoHib;
     }
 }

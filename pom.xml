@@ -37,7 +37,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.2.12.Final</version>
+            <version>5.2.12.Final</version><!--5.2.12.Final-->
         </dependency>
 
         <dependency>
@@ -51,11 +51,5 @@
             <artifactId>sqlite-dialect</artifactId>
             <version>1.0</version>
         </dependency>
-
-        <!--><dependency>
-            <groupId>net.kemitix</groupId>
-            <artifactId>sqlite-dialect</artifactId>
-            <version>0.1.0</version>
-        </dependency><-->
     </dependencies>
 </project>

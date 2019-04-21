@@ -1,24 +1,23 @@
 package Thread;
 
-import Compound.Compound;
-import PojoClass.Task;
-import PojoClass.User;
+import Compound.CompoandForHib;
+import entityH.TaskEntity;
+import entityH.UserEntity;
 
-import java.sql.SQLException;
 import java.sql.Time;
 import java.util.*;
 
 public class MonitoringThread extends Thread {
-    private List<Task> taskList; //Тут все задачи одного пользователя
-    private Compound compound;
-    private User user;
+    private List<TaskEntity> taskList; //Тут все задачи одного пользователя
+    private CompoandForHib compound;
+    private UserEntity user;
     private NotificationThread notificationThread;
-    private ArrayList<Task> tasksWorking;
+    private ArrayList<TaskEntity> tasksWorking;
 
-    public MonitoringThread(Compound compound, User user) throws SQLException {
+    public MonitoringThread(CompoandForHib compound, UserEntity user) {
         this.compound = compound;
         this.user = user;
-        tasksWorking = new ArrayList<Task>();
+        tasksWorking = new ArrayList<TaskEntity>();
     }
 
     public void run() {
@@ -28,9 +27,9 @@ public class MonitoringThread extends Thread {
             } catch (InterruptedException e) {
                 break;
             }
-            this.taskList = user.getTaskList(); //Получене записей пользователя не из бд, а из его листа
+            this.taskList = new ArrayList<>(user.getTaskByIdUser()); //Получене записей пользователя не из бд, а из его листа
             for (int i = 0; i < taskList.size(); i++) {
-                Task task = taskList.get(i);
+                TaskEntity task = taskList.get(i);
                 Date dateTask = task.getDateTask();
                 Time timeTask = task.getTimeTask();
 
@@ -48,7 +47,7 @@ public class MonitoringThread extends Thread {
                         //Обновление ,если задача уже удалена, чтобы не получилось, случайно, листа огромного
                         // размера из задач, которые уже удалены или отложены,
                         // но в этом листе их старая версия уже осталась
-                        ArrayList<Task> newTasks = new ArrayList<>();
+                        ArrayList<TaskEntity> newTasks = new ArrayList<>();
                         for(int j=0;j<taskList.size();j++){
                             for(int k=0;k<tasksWorking.size();k++){
                                 if(taskList.get(j)==tasksWorking.get(k)){

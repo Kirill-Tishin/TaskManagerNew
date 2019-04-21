@@ -1,7 +1,5 @@
 package entityH;
 
-import org.hibernate.annotations.JoinColumnOrFormula;
-
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;

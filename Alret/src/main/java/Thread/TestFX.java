@@ -1,9 +1,9 @@
 package Thread;
 
-import Compound.Compound;
-import InterfaceDao.TaskInterface;
-import PojoClass.Task;
-import PojoClass.User;
+import Compound.CompoandForHib;
+import entityH.TaskEntity;
+import entityH.UserEntity;
+import hibernateDao.TaskDaoHib;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -12,20 +12,18 @@ import javafx.scene.control.ButtonType;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class TestFX implements Initializable {
-    private User user;
-    private Task task;
-    private TaskInterface taskInterface;
+    private UserEntity user;
+    private TaskEntity task;
+    private TaskDaoHib taskDaoHib;
 
-    public TestFX(User user, Task task, Compound compound) {
+    public TestFX(UserEntity user, TaskEntity task, CompoandForHib compound) {
         this.task = task;
         this.user = user;
-        this.taskInterface = compound.getTaskInterface();
+        this.taskDaoHib = compound.getTaskDaoHib();
     }
 
     @Override
@@ -60,18 +58,26 @@ public class TestFX implements Initializable {
           /*  Date dateNow = new Date();
             Date date = new Date(dateNow.getTime()+5000L*60);*/
 
-            ArrayList arrayListNew = user.getTaskList();
+            ArrayList<TaskEntity> arrayListNew = new ArrayList<>(user.getTaskByIdUser());
             //Обновили в бд
-            taskInterface.updateTask(task.getIdUser(), task.getIdTask(), task.getNameTask(), task.getDescriptionTask(), calendar.getTime(), new Time(calendar.getTimeInMillis()));
+            TaskEntity taskEntityNew = new TaskEntity();
+            taskEntityNew.setNameTask(task.getNameTask());
+            taskEntityNew.setDescriptionTask(task.getDescriptionTask());
+            taskEntityNew.setDateTask(calendar.getTime());
+            taskEntityNew.setTimeTask(new Time(calendar.getTimeInMillis()));
+            taskEntityNew.setUserByIdUser(task.getUserByIdUser());
+            taskEntityNew.setIdUser(task.getIdUser());
+            taskDaoHib.deleteTask(task);
+            taskDaoHib.addTask(taskEntityNew);
+
             arrayListNew.remove(task); //Обновили у пользователя
-            Task taskNew = new Task(task.getIdTask(), task.getIdUser(), task.getNameTask(), task.getDescriptionTask(), calendar.getTime(), new Time(calendar.getTimeInMillis()));
-            arrayListNew.add(taskNew);
-            user.setTaskList(arrayListNew);
+            arrayListNew.add(taskEntityNew);
+            user.setTaskByIdUser(arrayListNew);
         } else {
-            ArrayList arrayListNew = user.getTaskList();
+            ArrayList arrayListNew = new ArrayList<>(user.getTaskByIdUser());
             arrayListNew.remove(task);
-            user.setTaskList(arrayListNew); //Удилили задачу из листа пользователя
-            taskInterface.deleteTask(task); //Удилили задачу из бд
+            user.setTaskByIdUser(arrayListNew); //Удилили задачу из листа пользователя
+            taskDaoHib.deleteTask(task); //Удилили задачу из бд
         }
     }
 }
